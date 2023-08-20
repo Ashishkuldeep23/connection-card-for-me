@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "General Sans", sans-serif;
+}
+
+:root {
+  --theme: #ffd000;
+}
+
+main {
+  min-height: 100vh;
+  width: 100%;
+
+  padding: 5vh 2vh;
+  background-color: lightcyan;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+main > #heading_div {
+  /* background-color: red; */
+
+  border: 2px solid var(--theme);
+  margin: 2vh 0;
+  padding: 1vh 2vh;
+  border-radius: 5vh;
+
+  width: 50%;
+  text-align: center;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#heading_div > h2 {
+  color: var(--theme);
+  transition: all 1s;
+}
+
+#heading_div > h2:hover {
+  color: black;
+}
+
+#theme_div {
+  background-color: var(--theme);
+  border-radius: 5vh;
+  padding: 0.2vh 1vh;
+}
+
+#theme_div > .im_theme {
+  border-radius: 50%;
+  margin: 0 0.5vh;
+  padding: 0 0.7vh;
+  background-color: black;
+  color: white;
+  animation: up_down 2s linear infinite alternate-reverse;
+}
+
+main > #both_holder {
+  min-height: 50vh;
+  width: 50%;
+
+  background-color: white;
+
+  border-radius: 5vh;
+  overflow: hidden;
+
+  box-shadow: 2px 2px 5px gray;
+
+  display: flex;
+  border: 1px solid var(--theme);
+}
+
+#inner_left {
+  padding: 2vh;
+  width: 40%;
+  background-color: var(--theme);
+  /* color: white; */
+
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+#inner_left > div {
+  height: 15vw;
+  width: 14vw;
+  overflow: hidden;
+  border-radius: 7%;
+  margin: 1vh 0;
+
+  animation: up_down 0.7s linear infinite alternate-reverse;
+}
+
+#inner_left img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all 150ms;
+}
+
+#inner_left img:hover {
+  transform: scale(1.05);
+}
+
+#inner_left > h1 {
+  position: relative;
+}
+
+#inner_left > h1::after {
+  content: "";
+  background-color: black;
+  height: 3px;
+  width: 0%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: all 0.5s;
+}
+
+#inner_left > h1:hover::after {
+  width: 100%;
+}
+
+#inner_right {
+  /* background-color: #ffed9d; */
+  /* background: url("http://res.cloudinary.com/dlvq8n2ca/image/upload/v1692032164/utemmzfh8jy0w4bufdp4.png"); */
+
+  padding: 2vh;
+  width: 60%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.social_link {
+  /* border: 1px solid gray; */
+  background-color: white;
+  height: 7vh;
+  width: 100%;
+  margin: 1vh 0;
+
+  border-radius: 100px;
+  padding: 1vh 1.5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  box-shadow: -2px 2px 2px var(--theme);
+  transition: transform 150ms, box-shadow 2s, background-image 2s;
+  overflow-y: scrool;
+}
+
+.social_link:hover {
+  background-image: linear-gradient(
+    350deg,
+    white,
+    white,
+    var(--theme),
+    white,
+    white,
+    white
+  );
+  box-shadow: -3px -3px 2px var(--theme);
+  transform: scale(1.02);
+}
+
+.social_link i {
+  display: inline-block;
+  font-size: 1.5rem;
+
+  border-radius: 1vh;
+  transition: all 1s;
+
+  animation: up_down 1s linear infinite alternate-reverse;
+}
+
+.social_link i:hover {
+  color: var(--theme);
+  background-color: black;
+}
+
+#footer {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  color: var(--theme);
+  transition: all 1s;
+}
+
+#footer:hover {
+  padding: 0 2px;
+  background-color: black;
+  border-radius: 100px;
+}
+
+@media (max-width: 670px) {
+  main > #heading_div {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  main > #both_holder {
+    flex-direction: column;
+  }
+
+  #inner_left {
+    width: 100%;
+  }
+
+  #inner_left > div {
+    height: 35vh;
+    width: 30vh;
+  }
+
+  #inner_left > h1 {
+    font-size: 1.5rem;
+  }
+  #inner_right {
+    width: 100%;
+  }
+
+  .social_link {
+    padding: 0.5vh;
+  }
+}
+
+@media (max-width: 450px) {
+  main > #heading_div {
+    width: 80%;
+  }
+
+  main > #both_holder {
+    width: 80%;
+  }
+}
+
+@media (max-width: 240px) {
+  #inner_left > h1 {
+    font-size: 1.2rem;
+  }
+}
+
+@keyframes up_down {
+  0% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(2px);
+  }
+}
