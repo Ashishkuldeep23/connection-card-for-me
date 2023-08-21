@@ -57,35 +57,35 @@ function App() {
               onClick={() => themeChangeHandler("#70f8ba")}
               style={{ backgroundColor: "#70f8ba" }}
             >
-              1
+              ৹
             </button>
             <button
               className="im_theme"
               onClick={() => themeChangeHandler("#ee85b5")}
               style={{ backgroundColor: "#ee85b5" }}
             >
-              2
+              ৹
             </button>
             <button
               className="im_theme"
               onClick={() => themeChangeHandler("#69ddff")}
               style={{ backgroundColor: "#69ddff" }}
             >
-              3
+              ৹
             </button>
             <button
               className="im_theme"
               onClick={() => themeChangeHandler("#D4C1EC")}
               style={{ backgroundColor: "#D4C1EC" }}
             >
-              4
+              ৹
             </button>
             <button
               className="im_theme"
               onClick={() => themeChangeHandler("#ffd000")}
               style={{ backgroundColor: "#ffd000" }}
             >
-              D
+              ৹
             </button>
           </div>
         </div>
@@ -106,17 +106,23 @@ function App() {
                 <i id="arrow" className="ri-arrow-right-double-line"></i>
               )}
             </p>
+
+            <div id="for_style_left"></div>
           </div>
 
           <div id="inner_right">
+          <div id="for_style_right"></div>
             {userData.map((user) => (
               <Links
                 key={user.id}
-                clickAble={user.clickAble}
-                siteName={user.siteName}
-                logo={user.logo}
+                user={user}
+              // clickAble={user.clickAble}
+              // siteName={user.siteName}
+              // logo={user.logo}
               />
             ))}
+
+   
           </div>
         </div>
         <p id="footer">By :- Ashish kuldeep</p>

@@ -1,8 +1,7 @@
-function Links({
-  siteName = "Link",
-  logo = "ri-links-line",
-  clickAble = "https://www.google.com/",
-}) {
+function Links({user}) {
+
+  let { siteName = "Link", logo = "ri-links-line", clickAble = "https://www.google.com/", userId = "ID ID ID ID" } = user
+
   return (
     <div
       className="social_link"
@@ -10,10 +9,16 @@ function Links({
         window.open(clickAble, "_blank");
       }}
     >
-      <p>{siteName}</p>
+      <div>
+
+        <p>{siteName}</p>
+        <p className="im_user_id">{userId}</p>
+      </div>
       <p>
         <i className={logo}></i>
       </p>
+
+
     </div>
   );
 }
