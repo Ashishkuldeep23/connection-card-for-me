@@ -12,6 +12,8 @@ function App() {
 
   const [isdarkMode , setIsDarkMode] = useState(false);  // // // Dark mode enabled or not.
 
+  const [userName , setUserName]  = useState("Ashish Kuldeep")
+
 
 
   function btnHandlerMakeDark(){
@@ -51,6 +53,20 @@ function App() {
   }
 
 
+  function nameChangeHandler(){
+    let takeNamePlz = prompt("Give your name here :- ")
+
+    console.log(takeNamePlz)
+
+    // // // Validation Here
+
+    setUserName(takeNamePlz)
+    localStorage.setItem("userName" , JSON.stringify((takeNamePlz)))
+
+
+  }
+
+
 
 
 
@@ -72,13 +88,25 @@ function App() {
       document.documentElement.style.setProperty("--theme", themeColor);
     }
 
+
+    // // // Get name of user
+
+    let userName = localStorage.getItem("userName")
+
+    if(userName){
+      userName = JSON.parse(userName)
+
+      setUserName(userName)
+    }
+
+
   }, []);
 
   return (
     <>
 
       <header id="header">
-        <div id="header_left"><button onClick={()=>{alert("Currently Working")}}><i className="ri-align-justify"></i></button></div>
+        <div id="header_left"><button onClick={()=>{alert("Currently Working , You want a webapp where user can create own card , then write in comment box plz.")}}><i className="ri-align-justify"></i></button></div>
         <div id="header_right">
           <button onClick={btnHandlerMakeDark}>{isdarkMode ? <i className="ri-sun-line"></i> : <i className="ri-contrast-2-line"></i>}</button>
         </div>
@@ -96,35 +124,36 @@ function App() {
               onClick={() => themeChangeHandler("#70f8ba")}
               style={{ backgroundColor: "#70f8ba" }}
             >
-              ৹
+              
+              <i className="ri-palette-line"></i>
             </button>
             <button
               className="im_theme"
               onClick={() => themeChangeHandler("#ee85b5")}
               style={{ backgroundColor: "#ee85b5" }}
             >
-              ৹
+              <i className="ri-palette-line"></i>
             </button>
             <button
               className="im_theme"
               onClick={() => themeChangeHandler("#69ddff")}
               style={{ backgroundColor: "#69ddff" }}
             >
-              ৹
+              <i className="ri-palette-line"></i>
             </button>
             <button
               className="im_theme"
               onClick={() => themeChangeHandler("#D4C1EC")}
               style={{ backgroundColor: "#D4C1EC" }}
             >
-              ৹
+              <i className="ri-palette-line"></i>
             </button>
             <button
               className="im_theme"
               onClick={() => themeChangeHandler("#ffd000")}
               style={{ backgroundColor: "#ffd000" }}
             >
-              ৹
+              D
             </button>
           </div>
         </div>
@@ -136,7 +165,11 @@ function App() {
                 alt="Ashish"
               />
             </div>
-            <h1>Ashish Kuldeep</h1>
+            <h1>
+              {userName} 
+              {/* Currently not using this because this is my own card */}
+              {/* <i id="edit_name" onClick={nameChangeHandler} className="ri-edit-line"></i> */}
+            </h1>
             <p>
               Connect with me {":)"}{" "}
               {isMobile ? (
@@ -164,7 +197,7 @@ function App() {
 
           </div>
         </div>
-        <p id="footer">By :- Ashish kuldeep</p>
+        <p id="footer">By :- {userName}</p>
       </main>
     </>
   );
