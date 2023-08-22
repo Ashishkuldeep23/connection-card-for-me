@@ -202,12 +202,12 @@ function App() {
 
             {/* Not Now  */}
         {/* <button>Create your own Crad</button> */}
-      </main>
-      <footer>  
-
-
         <p id="footer_text">By :- {userName}</p>
-      </footer>
+      </main>
+
+
+
+
     </>
   );
 }
