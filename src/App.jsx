@@ -22,8 +22,8 @@ function App() {
     setIsDarkMode(!isdarkMode);
 
     if(!isdarkMode){
-      document.getElementById("root").style.backgroundColor = "black"
-      document.documentElement.style.setProperty("--dark", "black");
+      document.getElementById("root").style.backgroundColor = "#212529"
+      document.documentElement.style.setProperty("--dark", "#212529");
       document.documentElement.style.setProperty("--text", "white");
     }else{
       document.getElementById("root").style.backgroundColor = "#fff"
@@ -106,7 +106,7 @@ function App() {
     <>
 
       <header id="header">
-        <div id="header_left"><button onClick={()=>{alert("Currently Working , You want a webapp where user can create own card , then write in comment box plz.")}}><i className="ri-align-justify"></i></button></div>
+        <div id="header_left"><button onClick={()=>{alert("Currently Working , if you want a webapp where user can create own card , then write in comment box plz.")}}><i className="ri-align-justify"></i></button></div>
         <div id="header_right">
           <button onClick={btnHandlerMakeDark}>{isdarkMode ? <i className="ri-sun-line"></i> : <i className="ri-contrast-2-line"></i>}</button>
         </div>
@@ -196,9 +196,18 @@ function App() {
 
 
           </div>
+
+
         </div>
-        <p id="footer">By :- {userName}</p>
+
+            {/* Not Now  */}
+        {/* <button>Create your own Crad</button> */}
       </main>
+      <footer>  
+
+
+        <p id="footer_text">By :- {userName}</p>
+      </footer>
     </>
   );
 }
