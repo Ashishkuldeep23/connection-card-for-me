@@ -6,9 +6,33 @@ import Links from "./components/Links";
 
 
 function App() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);   // // Seen in mobile or not.
 
-  const [userData, setUserData] = useState(arrOfLink);
+  const [userData, setUserData] = useState(arrOfLink);    // // // User Personal data.
+
+  const [isdarkMode , setIsDarkMode] = useState(false);  // // // Dark mode enabled or not.
+
+
+
+  function btnHandlerMakeDark(){
+
+    
+    setIsDarkMode(!isdarkMode);
+
+    if(!isdarkMode){
+      document.getElementById("root").style.backgroundColor = "black"
+      document.documentElement.style.setProperty("--dark", "black");
+      document.documentElement.style.setProperty("--text", "white");
+    }else{
+      document.getElementById("root").style.backgroundColor = "#fff"
+      document.documentElement.style.setProperty("--dark", "#fff");
+      document.documentElement.style.setProperty("--text", "black");
+    }
+
+
+  }
+
+
 
   function themeChangeHandler(colorCode) {
     // alert(colorCode);
@@ -26,6 +50,11 @@ function App() {
     localStorage.setItem("theme_of_card", JSON.stringify(colorCode));
   }
 
+
+
+
+
+  // // // useEffect here ---------->
   useEffect(() => {
     // // // For mobile viwer
     const innerWidth = window.innerWidth;
@@ -42,10 +71,20 @@ function App() {
       themeColor = JSON.parse(themeColor);
       document.documentElement.style.setProperty("--theme", themeColor);
     }
+
   }, []);
 
   return (
     <>
+
+      <header id="header">
+        <div id="header_left"><button onClick={()=>{alert("Currently Working")}}><i className="ri-align-justify"></i></button></div>
+        <div id="header_right">
+          <button onClick={btnHandlerMakeDark}>{isdarkMode ? <i className="ri-sun-line"></i> : <i className="ri-contrast-2-line"></i>}</button>
+        </div>
+
+      </header>
+
       <main>
         <div id="heading_div">
           <h2>{"Let's Connect personaly"}</h2>
@@ -111,7 +150,7 @@ function App() {
           </div>
 
           <div id="inner_right">
-          <div id="for_style_right"></div>
+            <div id="for_style_right"></div>
             {userData.map((user) => (
               <Links
                 key={user.id}
@@ -122,7 +161,7 @@ function App() {
               />
             ))}
 
-   
+
           </div>
         </div>
         <p id="footer">By :- Ashish kuldeep</p>

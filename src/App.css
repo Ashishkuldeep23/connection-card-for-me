@@ -7,14 +7,61 @@
 
 :root {
   --theme: #ffd000;
+  --dark : #fff ;
+  --text : black;
 }
+
+
+
+#header{
+  width: 100%;
+  /* border: 1px solid var(--theme); */
+  /* background-color: var(--theme); */
+
+  position: fixed;
+  top: 0px;
+
+  color: black;
+  z-index: 1000;
+
+  padding: 0.5vh 5vh;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+
+#header button{
+  font-size: 1.2rem;
+  padding: 0 1vh;
+  color: var(--theme);
+  border: 1px solid var(--theme);
+  background-color: black;
+
+}
+
+
+#header button:first-child{
+  border-radius: 0.5vh;
+  padding: 0 0.5vh;
+}
+
+
+#header  button:hover{
+  color: black;
+  border: 1px solid black;
+  background-color: var(--theme);
+}
+
+
 
 main {
   min-height: 100vh;
   width: 100%;
 
   padding: 5vh 2vh;
-  background-color: lightcyan;
+  background-color: #e0ffffee;
 
   display: flex;
   flex-direction: column;
@@ -23,7 +70,7 @@ main {
   position: relative;
 }
 
-main > #heading_div {
+main>#heading_div {
   /* background-color: red; */
 
   border: 2px solid var(--theme);
@@ -39,12 +86,12 @@ main > #heading_div {
   align-items: center;
 }
 
-#heading_div > h2 {
+#heading_div>h2 {
   color: var(--theme);
   transition: all 1s;
 }
 
-#heading_div > h2:hover {
+#heading_div>h2:hover {
   color: black;
 }
 
@@ -54,7 +101,7 @@ main > #heading_div {
   padding: 0.2vh 1vh;
 }
 
-#theme_div > .im_theme {
+#theme_div>.im_theme {
   border-radius: 50%;
   margin: 0 0.5vh;
   padding: 0 0.7vh;
@@ -63,7 +110,7 @@ main > #heading_div {
   animation: up_down 2s linear infinite alternate-reverse;
 }
 
-main > #both_holder {
+main>#both_holder {
   min-height: 50vh;
   width: 50%;
 
@@ -93,7 +140,7 @@ main > #both_holder {
 }
 
 
-#inner_left > div:first-child {
+#inner_left>div:first-child {
   height: 15vw;
   width: 14vw;
   overflow: hidden;
@@ -101,7 +148,16 @@ main > #both_holder {
   margin: 1vh 0;
   z-index: 1000;
 
-  animation: up_down 0.7s linear infinite alternate-reverse;
+
+
+
+  animation-name: up_down , bg_shadow_up_down;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: linear;
+
+
 }
 
 #inner_left img {
@@ -115,14 +171,15 @@ main > #both_holder {
   transform: scale(1.05);
 }
 
-#inner_left > h1 , p {
+#inner_left>h1, p {
   z-index: 1000;
   position: relative;
+  color: var(--text);
 }
 
-#inner_left > h1::after {
+#inner_left>h1::after {
   content: "";
-  background-color: black;
+  background-color: var(--text);
   height: 3px;
   width: 0%;
   position: absolute;
@@ -131,21 +188,21 @@ main > #both_holder {
   transition: all 0.5s;
 }
 
-#inner_left > h1:hover::after {
+#inner_left>h1:hover::after {
   width: 100%;
 }
 
 
-#inner_left > #for_style_left{
+#inner_left>#for_style_left {
   height: 50%;
-  width: 50%;
+  width: 60%;
   border-radius: 45%;
-  background-color: white;
+  background-color: var(--dark);
   position: absolute;
-  top: 0;
+  top: 50%;
   right: 0;
   z-index: 0;
-  transform: translate(50% , 0);
+  transform: translate(50%, 0);
 
 }
 
@@ -153,7 +210,7 @@ main > #both_holder {
 
 
 #inner_right {
-  /* background-color: #ffed9d; */
+  background-color: var(--dark);
   /* background: url("http://res.cloudinary.com/dlvq8n2ca/image/upload/v1692032164/utemmzfh8jy0w4bufdp4.png"); */
 
   padding: 2vh;
@@ -168,16 +225,16 @@ main > #both_holder {
 
 
 
-#inner_right > #for_style_right{
+#inner_right>#for_style_right {
   height: 50%;
-  width: 50%;
+  width: 60%;
   border-radius: 45%;
   background-color: var(--theme);
   position: absolute;
-  top: 50%;
+  top: 0%;
   right: 100%;
   z-index: 0;
-  transform: translate(50% , 0);
+  transform: translate(50%, 0);
 
 }
 
@@ -185,7 +242,8 @@ main > #both_holder {
 
 .social_link {
   /* border: 1px solid gray; */
-  background-color: white;
+  background-color: var(--dark);
+  color: var(--text);
   height: 7vh;
   width: 100%;
 
@@ -199,20 +257,20 @@ main > #both_holder {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
-  transition: transform 150ms, box-shadow 2s, background-image 2s , height 2s;
+
+  transition: transform 150ms, box-shadow 2s, background-image 2s, height 2s;
   overflow-y: scrool;
   z-index: 1000;
 }
 
 .social_link:hover {
   /* height: fit-content; */
-  background-image: linear-gradient( 340deg,var(--theme),white,white,var(--theme));
+  background-image: linear-gradient(340deg, var(--theme), var(--dark), var(--dark), var(--theme));
   box-shadow: -3px -3px 2px var(--theme);
   transform: scale(1.02);
 }
 
-.im_user_id{
+.im_user_id {
   display: none;
   font-size: 0.85rem;
   font-weight: bold;
@@ -220,7 +278,7 @@ main > #both_holder {
 }
 
 
-.social_link:hover .im_user_id{
+.social_link:hover .im_user_id {
   display: block !important;
 }
 
@@ -237,7 +295,7 @@ main > #both_holder {
 
 .social_link i:hover {
   color: var(--theme);
-  background-color: black;
+  background-color: var(--text);
 }
 
 #footer {
@@ -258,13 +316,13 @@ main > #both_holder {
 
 @media (max-width: 670px) {
 
-  main > #heading_div {
+  main>#heading_div {
     width: 70%;
     flex-direction: column;
     justify-content: center;
   }
 
-  main > #both_holder {
+  main>#both_holder {
     width: 70%;
     flex-direction: column;
   }
@@ -273,32 +331,35 @@ main > #both_holder {
     width: 100%;
   }
 
-  #inner_left > div:first-child {
+  #inner_left>div:first-child {
     height: 35vh;
     width: 30vh;
   }
 
 
-  
-#inner_left > #for_style_left{
-  top: 70%;
-  width: 100%;
-  border-radius: 45%;
-}
+
+  #inner_left>#for_style_left {
+    top: 70%;
+    width: 100%;
+    border-radius: 45%;
+    left: -100%;
+  }
 
 
-  #inner_left > h1 {
+  #inner_left>h1 {
     font-size: 1.5rem;
   }
+
   #inner_right {
     width: 100%;
   }
 
 
-  #inner_right > #for_style_right{
+  #inner_right>#for_style_right {
     height: 100%;
     width: 100%;
     top: 0%;
+    left: 0%;
     transform: translate(50%, -50%);
     border-radius: 45%;
   }
@@ -311,26 +372,41 @@ main > #both_holder {
 }
 
 @media (max-width: 450px) {
-  main > #heading_div {
+  main>#heading_div {
     width: 90%;
   }
 
-  main > #both_holder {
+  main>#both_holder {
     width: 90%;
   }
 }
 
 @media (max-width: 240px) {
-  #inner_left > h1 {
+  #inner_left>h1 {
     font-size: 1.2rem;
   }
 }
+
+
+/* Animations starts here------> */
 
 @keyframes up_down {
   0% {
     transform: translateY(-2px);
   }
+
   100% {
     transform: translateY(2px);
   }
+}
+
+
+@keyframes bg_shadow_up_down {
+  0%{
+    box-shadow: 0px 5px 3px gainsboro;
+  }
+  100%{
+    box-shadow: 0px -5px 3px gainsboro;
+  }
+  
 }
