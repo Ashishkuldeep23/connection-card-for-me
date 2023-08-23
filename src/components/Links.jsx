@@ -12,7 +12,7 @@ function Links({user}) {
       <div>
 
         <p>{siteName}</p>
-        <p className="im_user_id">{userId}</p>
+        <span className="im_user_id">{userId}</span>
       </div>
       <p>
         <i className={logo}></i>

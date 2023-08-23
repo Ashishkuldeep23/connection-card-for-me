@@ -21,7 +21,7 @@ const arrOfLink = [
     },
     {
         id: "2",
-        siteName: "Twitter",
+        siteName: "Twitter [X]",
         logo: "ri-twitter-line",
         clickAble: "https://twitter.com/ashishkuldeep23",
         userId : "ashishkuldeep23",

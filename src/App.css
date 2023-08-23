@@ -23,7 +23,7 @@
   top: 0px;
 
   color: black;
-  z-index: 1000;
+  z-index: 999999;
 
   display: flex;
   padding: 0.5vh 10vh;
@@ -34,6 +34,7 @@
 
 
 #header button{
+  display: inline-block;
   font-size: 1.2rem;
   padding: 0 1vh;
   color: var(--theme);
@@ -91,16 +92,19 @@ main>#heading_div {
 #heading_div>h2 {
   color: var(--theme);
   transition: all 1s;
+  z-index: 999999;
 }
 
 #heading_div>h2:hover {
-  color: black;
+  color: var(--text);
 }
 
 #theme_div {
   background-color: var(--theme);
   border-radius: 5vh;
   padding: 0.2vh 1vh;
+  z-index: 999999;
+  /* position: relative; */
 }
 
 #theme_div>.im_theme {
@@ -167,14 +171,15 @@ main>#both_holder {
   width: 100%;
   object-fit: cover;
   transition: all 150ms;
+  z-index: 999999;
 }
 
 #inner_left img:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 #inner_left>h1, p {
-  z-index: 1000;
+  z-index: 999999;
   position: relative;
   color: var(--text);
 }
@@ -278,7 +283,7 @@ main>#both_holder {
 
   transition: transform 150ms, box-shadow 2s, background-image 2s, height 2s;
   overflow-y: scrool;
-  z-index: 1000;
+  z-index: 999999;
 }
 
 .social_link:hover {
@@ -286,6 +291,7 @@ main>#both_holder {
   background-image: linear-gradient(340deg, var(--theme), var(--dark), var(--dark), var(--theme));
   box-shadow: -3px -3px 2px var(--theme);
   transform: scale(1.02);
+  cursor: pointer;
 }
 
 .im_user_id {
