@@ -18,20 +18,23 @@ function App() {
 
   function btnHandlerMakeDark(){
 
-    
-    setIsDarkMode(!isdarkMode);
 
     if(!isdarkMode){
       document.getElementById("root").style.backgroundColor = "#212529"
       document.documentElement.style.setProperty("--dark", "#212529");
       document.documentElement.style.setProperty("--text", "white");
+
+      localStorage.setItem("darkMode" , JSON.stringify(true))
     }else{
       document.getElementById("root").style.backgroundColor = "#fff"
       document.documentElement.style.setProperty("--dark", "#fff");
       document.documentElement.style.setProperty("--text", "black");
+
+      localStorage.setItem("darkMode" , JSON.stringify(false))
     }
 
-
+        
+    setIsDarkMode(!isdarkMode);
   }
 
 
@@ -53,6 +56,7 @@ function App() {
   }
 
 
+  // // // Not using in personal card now
   function nameChangeHandler(){
     let takeNamePlz = prompt("Give your name here :- ")
 
@@ -89,15 +93,33 @@ function App() {
     }
 
 
-    // // // Get name of user
+    // // // darkMode code ----->
 
-    let userName = localStorage.getItem("userName")
+    let makeDark = localStorage.getItem("darkMode")
 
-    if(userName){
-      userName = JSON.parse(userName)
+    if(makeDark){
 
-      setUserName(userName)
+      makeDark = JSON.parse(makeDark)
+
+      if(makeDark){
+        // // // If value is true in localStorage the only do certain thing otherwise , do nothing.
+        setIsDarkMode(true)
+        document.getElementById("root").style.backgroundColor = "#212529"
+        document.documentElement.style.setProperty("--dark", "#212529");
+        document.documentElement.style.setProperty("--text", "white");
+      }
+
     }
+
+
+
+    // // // Get name of user   ( // // // Not using in personal card now)
+
+    // let userName = localStorage.getItem("userName")
+    // if(userName){
+    //   userName = JSON.parse(userName)
+    //   setUserName(userName)
+    // }
 
 
   }, []);

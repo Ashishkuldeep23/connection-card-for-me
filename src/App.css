@@ -152,7 +152,7 @@ main>#both_holder {
 
 
 
-
+  /* Two animation for same time and all same */
   animation-name: up_down , bg_shadow_up_down;
   animation-duration: 0.7s;
   animation-iteration-count: infinite;
@@ -179,6 +179,8 @@ main>#both_holder {
   color: var(--text);
 }
 
+
+/* #dit name not using currenly ----> */
 
 #edit_name{
   font-size: 1.2rem;

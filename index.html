@@ -6,14 +6,104 @@
     <link rel="icon" type="image/svg+xml"
       href="https://res.cloudinary.com/dlvq8n2ca/image/upload/v1692032164/utemmzfh8jy0w4bufdp4.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1 , user-scalable=no">
-    <title>Connect with Ashish</title>
+    <title>Connection card of Ashish</title>
     <!-- Remix icon link -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- Font -->
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@500,400&f[]=tanker@400&display=swap" rel="stylesheet">
+
+
+    <style>
+      /* Experimening Working With Recat Also (Happy 😊)*/
+      #i_will_fallow_cursor {
+        height: 10px;
+        width: 10px;
+        background-color: var(--theme);
+        border-radius: 50%;
+
+        visibility: hidden;
+
+        transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+        mix-blend-mode: exclusion;
+
+        position: absolute;
+        z-index: 10000;
+      }
+
+    </style>
+
   </head>
+
   <body>
+    <div id="i_will_fallow_cursor"></div>
     <div id="root"></div>
+
+    <script>
+      // // // Let's make mouse tracker
+
+
+      function trackeMouseWithSkey() {     // / // function to fallow div
+
+
+        let trackerDiv = document.getElementById("i_will_fallow_cursor")    // / // This is actual div that fallowed my mouse
+
+        // / // Some Predefined values In X and Y
+        let preX = 0;
+        let preY = 0;
+
+        let preTimeOut;      // / // This Holds previous setTimeOut to make tracker dive in normal form.
+
+        window.addEventListener("mousemove", (dets) => {        // / // This line will listen Event on window
+          // console.log(dets.clientX , dets.clientY)
+
+          clearTimeout(preTimeOut)     // / // This line will clear all previous setTimeOut , if it is present.
+
+          // / // Here take difference of previous maove value with current move value (Foe Skew Mouse Tracker Div)
+          let mouseMovedInX = preX - dets.clientX
+          let mouseMovedInY = preY - dets.clientY
+
+          // / //  Here min and max value of skew.
+          let minSkew = 0.8
+          let maxSkew = 1.3
+
+          // / //  Here a logic in ternary oprator to skew value (can do this with if else condition statement).
+          mouseMovedInX = (mouseMovedInX <= minSkew) ? minSkew : (mouseMovedInX >= maxSkew) ? maxSkew : mouseMovedInX
+          mouseMovedInY = (mouseMovedInY <= minSkew) ? minSkew : (mouseMovedInY >= maxSkew) ? maxSkew : mouseMovedInY
+
+          // console.log(mouseMovedInX)
+
+          // / // Here Fallow the mouse (move tracker div)  and skey the the tracker div.
+          trackerDiv.style.visibility = "visible"
+          trackerDiv.style.transform = `translate(${dets.clientX}px , ${dets.clientY}px)  scale(${mouseMovedInX} , ${mouseMovedInY})`
+
+
+          // // // Here make div normal (skey value normal) , but mouse present where my cursor present (This code only run when , cursor in not moving)
+          preTimeOut = setTimeout(() => {
+            trackerDiv.style.transform = `translate(${dets.clientX}px , ${dets.clientY}px) scale(${1} , ${1})`
+
+            // // // If cursor is not moving then make my div hidden in form.
+            setTimeout(() => {
+              trackerDiv.style.visibility = "hidden"
+            }, 50)
+
+          }, 200)
+
+
+
+          preX = dets.clientX
+          preY = dets.clientY
+        })
+
+
+
+      }
+
+
+      trackeMouseWithSkey()
+
+    </script>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
+
 </html>
