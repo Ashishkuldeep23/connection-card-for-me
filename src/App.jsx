@@ -10,30 +10,30 @@ function App() {
 
   const [userData, setUserData] = useState(arrOfLink);    // // // User Personal data.
 
-  const [isdarkMode , setIsDarkMode] = useState(false);  // // // Dark mode enabled or not.
+  const [isdarkMode, setIsDarkMode] = useState(false);  // // // Dark mode enabled or not.
 
-  const [userName , setUserName]  = useState("Ashish Kuldeep")
-
-
-
-  function btnHandlerMakeDark(){
+  const [userName, setUserName] = useState("Ashish Kuldeep")
 
 
-    if(!isdarkMode){
+
+  function btnHandlerMakeDark() {
+
+
+    if (!isdarkMode) {
       document.getElementById("root").style.backgroundColor = "#212529"
       document.documentElement.style.setProperty("--dark", "#212529");
       document.documentElement.style.setProperty("--text", "white");
 
-      localStorage.setItem("darkMode" , JSON.stringify(true))
-    }else{
+      localStorage.setItem("darkMode", JSON.stringify(true))
+    } else {
       document.getElementById("root").style.backgroundColor = "#fff"
       document.documentElement.style.setProperty("--dark", "#fff");
       document.documentElement.style.setProperty("--text", "black");
 
-      localStorage.setItem("darkMode" , JSON.stringify(false))
+      localStorage.setItem("darkMode", JSON.stringify(false))
     }
 
-        
+
     setIsDarkMode(!isdarkMode);
   }
 
@@ -57,7 +57,7 @@ function App() {
 
 
   // // // Not using in personal card now
-  function nameChangeHandler(){
+  function nameChangeHandler() {
     let takeNamePlz = prompt("Give your name here :- ")
 
     console.log(takeNamePlz)
@@ -65,7 +65,7 @@ function App() {
     // // // Validation Here
 
     setUserName(takeNamePlz)
-    localStorage.setItem("userName" , JSON.stringify((takeNamePlz)))
+    localStorage.setItem("userName", JSON.stringify((takeNamePlz)))
 
 
   }
@@ -97,11 +97,11 @@ function App() {
 
     let makeDark = localStorage.getItem("darkMode")
 
-    if(makeDark){
+    if (makeDark) {
 
       makeDark = JSON.parse(makeDark)
 
-      if(makeDark){
+      if (makeDark) {
         // // // If value is true in localStorage the only do certain thing otherwise , do nothing.
         setIsDarkMode(true)
         document.getElementById("root").style.backgroundColor = "#212529"
@@ -122,13 +122,86 @@ function App() {
     // }
 
 
+
+    // // // Experimet here (Working) ----->
+    // // // Let's use gsap in recat code 
+
+
+
+    let tl = gsap.timeline()
+    // console.log(tl)
+
+    
+    // // // Heading Div ---->
+
+    tl.from("#heading_div", {
+      x: "0%",
+      y: "-40",
+      duration: .2,
+      ease: Expo.none ,
+      
+    })
+    
+  
+
+
+    // // // Move two style balls in div according to view device.
+
+    // // // For Tablet and more
+    tl.to("#for_style_left", {
+      x: "50%",
+      y: "100%",
+      duration: .2,
+      ease: Expo.none
+
+    })
+
+
+    tl.to("#for_style_right", {
+      x: "-110%",
+      y: "-100%",
+      duration: .2,
+      ease: Expo.none
+    })
+
+
+    // // // For mobile here ------>
+
+    if (innerWidth <= 670) {
+
+      tl.to("#for_style_left", {
+
+        x: "-50%",
+        y: "140%",
+        // y: "0",
+        // opacity: 1,
+        duration: .2,
+        ease: Expo.none,
+      })
+
+
+      tl.to("#for_style_right", {
+
+        x: "100%",
+        y: "-50%",
+        // y: "0",
+        // opacity: 1,
+        duration: .2,
+        ease: Expo.none
+      })
+
+    }
+
+
+
+
   }, []);
 
   return (
     <>
 
       <header id="header">
-        <div id="header_left"><button onClick={()=>{alert("Currently Working , if you want a webapp where user can create own card , then write in comment box plz.")}}><i className="ri-align-justify"></i></button></div>
+        <div id="header_left"><button onClick={() => { alert("Currently Working , if you want a webapp where user can create own card , then write in comment box plz.") }}><i className="ri-align-justify"></i></button></div>
         <div id="header_right">
           <button onClick={btnHandlerMakeDark}>{isdarkMode ? <i className="ri-sun-line"></i> : <i className="ri-contrast-2-line"></i>}</button>
         </div>
@@ -146,7 +219,7 @@ function App() {
               onClick={() => themeChangeHandler("#70f8ba")}
               style={{ backgroundColor: "#70f8ba" }}
             >
-              
+
               <i className="ri-palette-line"></i>
             </button>
             <button
@@ -188,7 +261,7 @@ function App() {
               />
             </div>
             <h1>
-              {userName} 
+              {userName}
               {/* Currently not using this because this is my own card */}
               {/* <i id="edit_name" onClick={nameChangeHandler} className="ri-edit-line"></i> */}
             </h1>
@@ -222,7 +295,7 @@ function App() {
 
         </div>
 
-            {/* Not Now  */}
+        {/* Not Now  */}
         {/* <button>Create your own Crad</button> */}
         <p id="footer_text">By :- {userName}</p>
       </main>

@@ -29,7 +29,7 @@
 
         visibility: hidden;
 
-        transform: translate(-50% , 50%);
+        transform: translate(-50%, 50%);
 
         transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
         /* mix-blend-mode: exclusion; */
@@ -37,7 +37,6 @@
         position: absolute;
         z-index: 99999;
       }
-
     </style>
 
   </head>
@@ -46,9 +45,19 @@
     <div id="i_will_fallow_cursor"></div>
     <div id="root"></div>
 
+
+
+
+    <!-- Gsap cdn link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.4/MotionPathPlugin.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
     <script>
       // // // Let's make mouse tracker
-
 
       function trackeMouseWithSkey() {     // / // function to fallow div
 
@@ -76,8 +85,8 @@
           preY = dets.clientY
 
           // / //  Here min and max value of skew.
-          let minSkew = 0.8
-          let maxSkew = 1.3
+          let minSkew = 0.7
+          let maxSkew = 1.4
 
           // / //  Here a logic in ternary oprator to skew value (can do this with if else condition statement).
           mouseMovedInX = (mouseMovedInX <= minSkew) ? minSkew : (mouseMovedInX >= maxSkew) ? maxSkew : mouseMovedInX
@@ -87,12 +96,12 @@
 
           // / // Here Fallow the mouse (move tracker div)  and skey the the tracker div.
           trackerDiv.style.visibility = "visible"
-          trackerDiv.style.transform = `translate(${dets.clientX-50}px , ${dets.clientY-50}px)  scale(${mouseMovedInX} , ${mouseMovedInY})`
+          trackerDiv.style.transform = `translate(${dets.clientX - 50}px , ${dets.clientY - 50}px)  scale(${mouseMovedInX} , ${mouseMovedInY})`
 
 
           // // // Here make div normal (skey value normal) , but mouse present where my cursor present (This code only run when , cursor in not moving)
           preTimeOut = setTimeout(() => {
-            trackerDiv.style.transform = `translate(${dets.clientX-50}px , ${dets.clientY-50}px) scale(${1} , ${1})`
+            trackerDiv.style.transform = `translate(${dets.clientX - 50}px , ${dets.clientY - 50}px) scale(${1} , ${1})`
 
             // // // If cursor is not moving then make my div hidden in form.
             setTimeout(() => {

@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: "General Sans", sans-serif;
   transition: all 0.7s;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -87,23 +88,22 @@ main>#heading_div {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  z-index: 999999;
 }
 
 #heading_div>h2 {
   color: var(--theme);
   transition: all 1s;
-  z-index: 999999;
 }
 
 #heading_div>h2:hover {
   color: var(--text);
 }
 
-#theme_div {
+#theme_div{
   background-color: var(--theme);
   border-radius: 5vh;
   padding: 0.2vh 1vh;
-  z-index: 999999;
   /* position: relative; */
 }
 
@@ -221,10 +221,9 @@ main>#both_holder {
   border-radius: 45%;
   background-color: var(--dark);
   position: absolute;
-  top: 50%;
-  right: 0;
+  top: 0%;
+  right: 0%;
   z-index: 0;
-  transform: translate(50%, 0);
 
 }
 
@@ -254,10 +253,9 @@ main>#both_holder {
   border-radius: 45%;
   background-color: var(--theme);
   position: absolute;
-  top: 0%;
-  right: 100%;
+  top: 50%;
+  right: 0%;
   z-index: 0;
-  transform: translate(50%, 0);
 
 }
 
@@ -272,6 +270,8 @@ main>#both_holder {
 
   margin: 1vh 0;
   padding: 1vh 1.5vh;
+
+  margin-left: 50px;
 
   border-radius: 100px;
   font-size: 1.2rem;
@@ -368,10 +368,10 @@ main>#both_holder {
 
 
   #inner_left>#for_style_left {
-    top: 70%;
+    top: 0%;
+    left: 0%;
     width: 100%;
     border-radius: 45%;
-    left: -100%;
   }
 
 
@@ -386,11 +386,11 @@ main>#both_holder {
 
 
   #inner_right>#for_style_right {
-    height: 100%;
-    width: 100%;
     top: 0%;
     left: 0%;
-    transform: translate(50%, -50%);
+    height: 100%;
+    width: 100%;
+    transform: translate(-50%, 0%);
     border-radius: 45%;
   }
 
