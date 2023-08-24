@@ -136,7 +136,6 @@ main>#both_holder {
 
   display: flex;
   border: 1px solid var(--theme);
-  z-index: 10;
 }
 
 #inner_left {
@@ -160,7 +159,7 @@ main>#both_holder {
   overflow: hidden;
   border-radius: 7%;
   margin: 1vh 0;
-  z-index: 1000;
+  z-index: 99999;
 
 
 
@@ -179,7 +178,9 @@ main>#both_holder {
   width: 100%;
   object-fit: cover;
   transition: all 150ms;
-  z-index: 999999;
+
+  display: inline-block;
+  z-index: 1000;
 }
 
 #inner_left img:hover {
@@ -187,7 +188,7 @@ main>#both_holder {
 }
 
 #inner_left>h1, p {
-  z-index: 999999;
+  z-index: 99999;
   position: relative;
   color: var(--text);
 }
@@ -291,7 +292,8 @@ main>#both_holder {
 
   transition: transform 150ms, box-shadow 2s, background-image 2s, height 2s;
   overflow-y: scrool;
-  z-index: 999999;
+
+  z-index: 110;
 }
 
 .social_link:hover {
@@ -368,10 +370,11 @@ main>#both_holder {
   main>#both_holder {
     width: 70%;
     flex-direction: column;
-    margin-top: 5vh;
+    margin-top: 2vh;
   }
 
   #inner_left {
+    z-index: 110;
     width: 100%;
   }
 
