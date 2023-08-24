@@ -135,10 +135,13 @@ function App() {
     // // // Heading Div ---->
 
     tl.from("#heading_div", {
+      startAt: {x: 0, opacity: 1},
       x: "0%",
       y: "-40",
-      duration: .2,
+      duration: .7,
       ease: Expo.none ,
+
+
       
     })
     
@@ -152,8 +155,7 @@ function App() {
       x: "50%",
       y: "100%",
       duration: .2,
-      ease: Expo.none
-
+      ease: Expo.none ,
     })
 
 
@@ -182,7 +184,7 @@ function App() {
 
       tl.to("#for_style_right", {
 
-        x: "100%",
+        x: "50%",
         y: "-50%",
         // y: "0",
         // opacity: 1,

@@ -18,9 +18,8 @@ function Links({user}) {
 
       x:"-30px" ,
       y : "5",
-      delay: -5,
-      stagger: .2
-
+      stagger: .2 ,
+      immediateRender : false ,
     })
 
 
