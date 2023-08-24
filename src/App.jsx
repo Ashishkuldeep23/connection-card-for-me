@@ -171,8 +171,15 @@ function App() {
 
     if (innerWidth <= 670) {
 
-      tl.to("#for_style_left", {
+      tl.from("#heading_div", {
+        y: "20",
+        duration: .1,
+        ease: Expo.none ,
+      })
 
+
+
+      tl.to("#for_style_left", {
         x: "-50%",
         y: "140%",
         // y: "0",
@@ -204,17 +211,8 @@ function App() {
 
       <header id="header">
         <div id="header_left"><button onClick={() => { alert("Currently Working , if you want a webapp where user can create own card , then write in comment box plz.") }}><i className="ri-align-justify"></i></button></div>
-        <div id="header_right">
-          <button onClick={btnHandlerMakeDark}>{isdarkMode ? <i className="ri-sun-line"></i> : <i className="ri-contrast-2-line"></i>}</button>
-        </div>
 
-      </header>
-
-      <main>
-        <div id="heading_div">
-          <h2>{"Let's Connect personaly"}</h2>
-
-          <div id="theme_div">
+        <div id="theme_div">
             <span>Themes :- </span>
             <button
               className="im_theme"
@@ -253,7 +251,19 @@ function App() {
               D
             </button>
           </div>
+
+
+        <div id="header_right">
+          <button onClick={btnHandlerMakeDark}>{isdarkMode ? <i className="ri-sun-line"></i> : <i className="ri-contrast-2-line"></i>}</button>
         </div>
+
+      </header>
+
+      <main>
+        <div id="heading_div">
+          <h2>{"Let's Connect personaly"}</h2>
+        </div>
+        
         <div id="both_holder">
           <div id="inner_left">
             <div>
