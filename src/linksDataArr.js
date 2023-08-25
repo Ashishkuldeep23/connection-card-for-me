@@ -10,6 +10,7 @@ let msg = "Hey Ashish, I want to connect with you via What's App. I'm, <YOURNAME
 // // // window.btoa()  ==> str to encoded
 // // // window.atoa()  ==> encoded to str
 
+// const arrOfLink = []
 
 const arrOfLink = [
     {

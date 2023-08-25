@@ -33,7 +33,6 @@ function App() {
       localStorage.setItem("darkMode", JSON.stringify(false))
     }
 
-
     setIsDarkMode(!isdarkMode);
   }
 
@@ -66,8 +65,6 @@ function App() {
 
     setUserName(takeNamePlz)
     localStorage.setItem("userName", JSON.stringify((takeNamePlz)))
-
-
   }
 
 
@@ -131,21 +128,21 @@ function App() {
     let tl = gsap.timeline()
     // console.log(tl)
 
-    
+
     // // // Heading Div ---->
 
     tl.from("#heading_div", {
-      startAt: {x: 0, opacity: 1},
+      startAt: { x: 0, opacity: 1 },
       x: "0%",
       y: "-40",
       duration: .7,
-      ease: Expo.none ,
+      ease: Expo.none,
 
 
-      
+
     })
-    
-  
+
+
 
 
     // // // Move two style balls in div according to view device.
@@ -155,7 +152,7 @@ function App() {
       x: "50%",
       y: "100%",
       duration: .2,
-      ease: Expo.none ,
+      ease: Expo.none,
     })
 
 
@@ -174,7 +171,7 @@ function App() {
       tl.from("#heading_div", {
         y: "20",
         duration: .1,
-        ease: Expo.none ,
+        ease: Expo.none,
       })
 
 
@@ -201,56 +198,65 @@ function App() {
 
     }
 
-
-
-
   }, []);
+
+
+
+
+
+  
 
   return (
     <>
+
+
+
 
       <header id="header">
         <div id="header_left"><button onClick={() => { alert("Currently Working , if you want a webapp where user can create own card , then write in comment box plz.") }}><i className="ri-align-justify"></i></button></div>
 
         <div id="theme_div">
-            <span>Themes :- </span>
-            <button
-              className="im_theme"
-              onClick={() => themeChangeHandler("#70f8ba")}
-              style={{ backgroundColor: "#70f8ba" }}
-            >
+          <span>Themes :- </span>
+          <button
+            className="im_theme"
+            onClick={() => {themeChangeHandler("#70f8ba");}}
+            style={{ backgroundColor: "#70f8ba" }}
+          >
 
-              <i className="ri-palette-line"></i>
-            </button>
-            <button
-              className="im_theme"
-              onClick={() => themeChangeHandler("#ee85b5")}
-              style={{ backgroundColor: "#ee85b5" }}
-            >
-              <i className="ri-palette-line"></i>
-            </button>
-            <button
-              className="im_theme"
-              onClick={() => themeChangeHandler("#69ddff")}
-              style={{ backgroundColor: "#69ddff" }}
-            >
-              <i className="ri-palette-line"></i>
-            </button>
-            <button
-              className="im_theme"
-              onClick={() => themeChangeHandler("#D4C1EC")}
-              style={{ backgroundColor: "#D4C1EC" }}
-            >
-              <i className="ri-palette-line"></i>
-            </button>
-            <button
-              className="im_theme"
-              onClick={() => themeChangeHandler("#ffd000")}
-              style={{ backgroundColor: "#ffd000" }}
-            >
-              D
-            </button>
-          </div>
+            <i className="ri-palette-line"></i>
+          </button>
+          <button
+            className="im_theme"
+            onClick={() => {themeChangeHandler("#ee85b5"); }}
+            style={{ backgroundColor: "#ee85b5" }}
+          >
+            <i className="ri-palette-line"></i>
+          </button>
+          <button
+            className="im_theme"
+            onClick={() => {
+              themeChangeHandler("#69ddff"); }}
+            style={{ backgroundColor: "#69ddff" }}
+          >
+            <i className="ri-palette-line"></i>
+          </button>
+          <button
+            className="im_theme"
+            onClick={() =>{ 
+              themeChangeHandler("#D4C1EC");}}
+            style={{ backgroundColor: "#D4C1EC" }}
+          >
+            <i className="ri-palette-line"></i>
+          </button>
+          <button
+            className="im_theme"
+            onClick={() => {
+              themeChangeHandler("#ffd000");}}
+            style={{ backgroundColor: "#ffd000" }}
+          >
+            D
+          </button>
+        </div>
 
 
         <div id="header_right">
@@ -263,7 +269,7 @@ function App() {
         <div id="heading_div">
           <h2>{"Let's Connect personaly"}</h2>
         </div>
-        
+
         <div id="both_holder">
           <div id="inner_left">
             <div>
@@ -291,15 +297,28 @@ function App() {
 
           <div id="inner_right">
             <div id="for_style_right"></div>
-            {userData.map((user) => (
-              <Links
-                key={user.id}
-                user={user}
-              // clickAble={user.clickAble}
-              // siteName={user.siteName}
-              // logo={user.logo}
-              />
-            ))}
+            {(userData) && (userData.length > 0)
+              ? userData.map((user) => (
+                <Links key={user.id} user={user}
+                // clickAble={user.clickAble}
+                // siteName={user.siteName}
+                // logo={user.logo}
+                />
+              ))
+
+
+              : Array.from(Array(7)).map((el, i) => {
+                return (
+
+                  ((i + 1) % 7 !== 0) ? <Links key={i} user={{}} /> : null
+
+                )
+
+
+              })
+
+
+            }
 
 
           </div>
