@@ -127,7 +127,7 @@ main>#heading_div {
 
 
 main>#both_holder {
-  min-height: 50vh;
+  min-height: 52vh;
   width: 50%;
 
   background-color: white;
@@ -332,6 +332,38 @@ main>#both_holder {
   background-color: var(--text);
 }
 
+
+#im_pagination_div{
+  width: 100%;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+
+  bottom: 0;
+
+  z-index: 110;
+}
+
+
+#im_pagination_div > button{
+  padding: 0 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: var(--theme);
+  color: var(--text);
+  border: 1px solid var(--text);
+}
+
+
+#im_pagination_div > button:hover{
+  background-color: var(--text);
+  color: var(--theme);
+}
+
+
 #footer_text {
   position: absolute;
   bottom: 1px;
@@ -374,6 +406,7 @@ main>#both_holder {
   }
 
   #inner_left {
+      /* min-height: 50vh; */
     z-index: 110;
     width: 100%;
   }
@@ -398,6 +431,7 @@ main>#both_holder {
   }
 
   #inner_right {
+    min-height: 45vh;
     width: 100%;
     padding-left: 2vh;
   }

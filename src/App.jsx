@@ -8,11 +8,13 @@ import Links from "./components/Links";
 function App() {
   const [isMobile, setIsMobile] = useState(false);   // // Seen in mobile or not.
 
-  const [userData, setUserData] = useState(arrOfLink);    // // // User Personal data.
+  const [userDataLinks, setUserDataLinks] = useState(arrOfLink);    // // // User Personal data.
 
   const [isdarkMode, setIsDarkMode] = useState(false);  // // // Dark mode enabled or not.
 
   const [userName, setUserName] = useState("Ashish Kuldeep")
+
+  const [pagesAre , setPagesAre] = useState([])
 
 
 
@@ -55,6 +57,7 @@ function App() {
   }
 
 
+
   // // // Not using in personal card now
   function nameChangeHandler() {
     let takeNamePlz = prompt("Give your name here :- ")
@@ -70,9 +73,60 @@ function App() {
 
 
 
+  function subArr(arr , start=0 , end=arr.length){
+
+    // console.log(start , end)
+
+      let newArr = []
+
+      for(let i=0; i<arr.length ; i++){
+        if(i>=start && i<end){
+          newArr.push(arr[i])
+        }
+      }
+      // console.log("A" , newArr)
+
+      return newArr
+  }
+
+
+  // subArr(arrOfLink , 1 , 3)
+
+
+
+
+  // // // This is global varible that holds the value how many links show maximum at one time
+  var forOnePage = 5        // // // maximum links in one page.
+
+
+
+  function pageClickHandler(n){
+
+    // console.log(n)
+    // console.log( (n-1)*forOnePage , forOnePage*n )
+    // console.log(arrOfLink)
+
+
+    let s = (n-1)*forOnePage 
+    let e = forOnePage*n 
+
+    let putThisArr = subArr(arrOfLink , s , e)
+
+    // console.log(putThisArr)
+
+    setUserDataLinks(putThisArr)
+
+  }
+
+
+
+
+
 
   // // // useEffect here ---------->
   useEffect(() => {
+
+
     // // // For mobile viwer
     const innerWidth = window.innerWidth;
     // console.log(innerWidth);
@@ -81,9 +135,10 @@ function App() {
       setIsMobile(true);
     }
 
+
+
     // // // For theme color
     let themeColor = localStorage.getItem("theme_of_card");
-
     if (themeColor) {
       themeColor = JSON.parse(themeColor);
       document.documentElement.style.setProperty("--theme", themeColor);
@@ -95,7 +150,6 @@ function App() {
     let makeDark = localStorage.getItem("darkMode")
 
     if (makeDark) {
-
       makeDark = JSON.parse(makeDark)
 
       if (makeDark) {
@@ -109,6 +163,34 @@ function App() {
     }
 
 
+    // // // SetPages ----->
+
+    
+
+
+    if(userDataLinks.length > forOnePage){
+
+      let countPages = Math.ceil(arrOfLink.length / forOnePage)
+
+      // console.log(countPages)
+
+      let newArrForPages = []
+
+      for(let i=1 ; i<= countPages ; i++){
+        newArrForPages.push(i)
+      }
+
+      setPagesAre(newArrForPages)
+
+      // console.log(arrOfLink)
+
+      let putThisArrInLink  = subArr(arrOfLink , 0 , forOnePage)
+      setUserDataLinks(putThisArrInLink)
+    }
+
+
+
+
 
     // // // Get name of user   ( // // // Not using in personal card now)
 
@@ -120,10 +202,11 @@ function App() {
 
 
 
+
+
+
     // // // Experimet here (Working) ----->
     // // // Let's use gsap in recat code 
-
-
 
     let tl = gsap.timeline()
     // console.log(tl)
@@ -205,7 +288,7 @@ function App() {
 
     // // // If mouse come then give property ------>
 
-    document.getElementById("heading_div").addEventListener('mouseover' , ()=>{
+    document.getElementById("heading_div").addEventListener('mouseover', () => {
 
       trackerDiv.style.mixBlendMode = "exclusion"
 
@@ -214,7 +297,7 @@ function App() {
 
     // // // If mouse leaes then give property ------>
 
-    document.getElementById("heading_div").addEventListener("mouseleave" , ()=>{
+    document.getElementById("heading_div").addEventListener("mouseleave", () => {
 
       trackerDiv.style.mixBlendMode = "unset"
 
@@ -232,32 +315,32 @@ function App() {
 
     // // // If mouse come then give property ------>
 
-    document.getElementById("both_holder").addEventListener("mouseover" , (details)=>{
-        // console.log("Good to go Cheif")
+    document.getElementById("both_holder").addEventListener("mouseover", (details) => {
+      // console.log("Good to go Cheif")
 
-        trackerDiv.style.height = "20px";
-        trackerDiv.style.width = "20px";
-
-
-        trackerDiv.style.mixBlendMode = "exclusion";
-        trackerDiv.style.transform = `translate(100% ,-100%)`
+      trackerDiv.style.height = "20px";
+      trackerDiv.style.width = "20px";
 
 
-        trackerDiv.style.marginLeft= "50px"
-        trackerDiv.style.marginTop= "50px"
-
-      })
+      trackerDiv.style.mixBlendMode = "exclusion";
+      trackerDiv.style.transform = `translate(100% ,-100%)`
 
 
-          // // // If mouse leave then give property (back to normal everything) ------>
-      document.getElementById("both_holder").addEventListener("mouseleave" , ()=>{
-        // console.log("Good to go Cheif")    
-        trackerDiv.style.height = "100px";
-        trackerDiv.style.width = "100px";
-        trackerDiv.style.mixBlendMode = "unset";
+      trackerDiv.style.marginLeft = "50px"
+      trackerDiv.style.marginTop = "50px"
 
-        trackerDiv.style.marginLeft= "0px"
-        trackerDiv.style.marginTop= "0px"
+    })
+
+
+    // // // If mouse leave then give property (back to normal everything) ------>
+    document.getElementById("both_holder").addEventListener("mouseleave", () => {
+      // console.log("Good to go Cheif")    
+      trackerDiv.style.height = "100px";
+      trackerDiv.style.width = "100px";
+      trackerDiv.style.mixBlendMode = "unset";
+
+      trackerDiv.style.marginLeft = "0px"
+      trackerDiv.style.marginTop = "0px"
     })
 
 
@@ -268,7 +351,7 @@ function App() {
 
 
 
-  
+
 
   return (
     <>
@@ -283,7 +366,7 @@ function App() {
           <span>Themes :- </span>
           <button
             className="im_theme"
-            onClick={() => {themeChangeHandler("#70f8ba");}}
+            onClick={() => { themeChangeHandler("#70f8ba"); }}
             style={{ backgroundColor: "#70f8ba" }}
           >
 
@@ -291,7 +374,7 @@ function App() {
           </button>
           <button
             className="im_theme"
-            onClick={() => {themeChangeHandler("#ee85b5"); }}
+            onClick={() => { themeChangeHandler("#ee85b5"); }}
             style={{ backgroundColor: "#ee85b5" }}
           >
             <i className="ri-palette-line"></i>
@@ -299,15 +382,17 @@ function App() {
           <button
             className="im_theme"
             onClick={() => {
-              themeChangeHandler("#69ddff"); }}
+              themeChangeHandler("#69ddff");
+            }}
             style={{ backgroundColor: "#69ddff" }}
           >
             <i className="ri-palette-line"></i>
           </button>
           <button
             className="im_theme"
-            onClick={() =>{ 
-              themeChangeHandler("#D4C1EC");}}
+            onClick={() => {
+              themeChangeHandler("#D4C1EC");
+            }}
             style={{ backgroundColor: "#D4C1EC" }}
           >
             <i className="ri-palette-line"></i>
@@ -315,7 +400,8 @@ function App() {
           <button
             className="im_theme"
             onClick={() => {
-              themeChangeHandler("#ffd000");}}
+              themeChangeHandler("#ffd000");
+            }}
             style={{ backgroundColor: "#ffd000" }}
           >
             D
@@ -361,26 +447,43 @@ function App() {
 
           <div id="inner_right">
             <div id="for_style_right"></div>
-            {(userData) && (userData.length > 0)
-              ? userData.map((user) => (
-                <Links key={user.id} user={user}
-                // clickAble={user.clickAble}
-                // siteName={user.siteName}
-                // logo={user.logo}
-                />
-              ))
+            {
+              ((userDataLinks) && (userDataLinks.length > 0))
+
+                ? userDataLinks.map((user) => (
+                  <Links key={user.id} user={user}
+                  // clickAble={user.clickAble}
+                  // siteName={user.siteName}
+                  // logo={user.logo}
+                  />
+                ))
+
+                : Array.from(Array(7)).map((el, i) => {
+                  return (
+
+                    ((i + 1) % 7 !== 0) ? <Links key={i} user={{}} /> : null
+
+                  )
+                })
+
+            }
 
 
-              : Array.from(Array(7)).map((el, i) => {
-                return (
+            {
 
-                  ((i + 1) % 7 !== 0) ? <Links key={i} user={{}} /> : null
+              <div id="im_pagination_div">
+                  { 
+                    (pagesAre.length > 0) && pagesAre.map( (el , i )=>{return <button 
+                      key={i}
+                      style={{margin : "5px 10px"}} 
 
-                )
+                      onClick={ ()=>{pageClickHandler(i+1)} }
+                      >{i+1}</button>}
+                    )
+                  }
 
 
-              })
-
+              </div>
 
             }
 
