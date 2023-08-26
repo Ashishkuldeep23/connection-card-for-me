@@ -14,7 +14,7 @@ function App() {
 
   const [userName, setUserName] = useState("Ashish Kuldeep")
 
-  const [pagesAre , setPagesAre] = useState([])
+  const [pagesAre, setPagesAre] = useState([])
 
 
 
@@ -72,22 +72,25 @@ function App() {
 
 
 
+  // // // First i was using this because i was confused in arr.splice and arr.slice method.
 
-  function subArr(arr , start=0 , end=arr.length){
+  // function subArr(arr, start = 0, end = arr.length) {
 
-    // console.log(start , end)
+  //   // console.log(start , end)
 
-      let newArr = []
+  //   // let newArr = []
 
-      for(let i=0; i<arr.length ; i++){
-        if(i>=start && i<end){
-          newArr.push(arr[i])
-        }
-      }
-      // console.log("A" , newArr)
+  //   // for(let i=0; i<arr.length ; i++){
+  //   //   if(i>=start && i<end){
+  //   //     newArr.push(arr[i])
+  //   //   }
+  //   // }
+  //   // console.log("A" , newArr)
 
-      return newArr
-  }
+  //   let newArr = arr.slice(start, end)
+
+  //   return newArr
+  // }
 
 
   // subArr(arrOfLink , 1 , 3)
@@ -96,26 +99,25 @@ function App() {
 
 
   // // // This is global varible that holds the value how many links show maximum at one time
-  var forOnePage = 5        // // // maximum links in one page.
+  var forOnePage = 3      // // // maximum links in one page.
 
 
 
-  function pageClickHandler(n){
+  function pageClickHandler(n) {
 
     // console.log(n)
     // console.log( (n-1)*forOnePage , forOnePage*n )
     // console.log(arrOfLink)
 
 
-    let s = (n-1)*forOnePage 
-    let e = forOnePage*n 
+    let s = (n - 1) * forOnePage
+    let e = forOnePage * n
 
-    let putThisArr = subArr(arrOfLink , s , e)
+    let putThisArr = arrOfLink.slice(s, e)
 
     // console.log(putThisArr)
 
     setUserDataLinks(putThisArr)
-
   }
 
 
@@ -163,12 +165,16 @@ function App() {
     }
 
 
-    // // // SetPages ----->
-
-    
+    // // // SetPages (pAGINATION CODE here , how many pages present )----->
 
 
-    if(userDataLinks.length > forOnePage){
+    if (forOnePage < 0) {
+      alert("Number of Links show in time can not be less then 0")
+    }
+
+
+
+    if (arrOfLink.length > forOnePage) {
 
       let countPages = Math.ceil(arrOfLink.length / forOnePage)
 
@@ -176,7 +182,7 @@ function App() {
 
       let newArrForPages = []
 
-      for(let i=1 ; i<= countPages ; i++){
+      for (let i = 1; i <= countPages; i++) {
         newArrForPages.push(i)
       }
 
@@ -184,7 +190,7 @@ function App() {
 
       // console.log(arrOfLink)
 
-      let putThisArrInLink  = subArr(arrOfLink , 0 , forOnePage)
+      let putThisArrInLink = arrOfLink.slice(0, forOnePage)
       setUserDataLinks(putThisArrInLink)
     }
 
@@ -472,15 +478,17 @@ function App() {
             {
 
               <div id="im_pagination_div">
-                  { 
-                    (pagesAre.length > 0) && pagesAre.map( (el , i )=>{return <button 
+                {
+                  (pagesAre.length > 0) && pagesAre.map((el, i) => {
+                    return <button
                       key={i}
-                      style={{margin : "5px 10px"}} 
+                      style={{ margin: "5px 10px" }}
 
-                      onClick={ ()=>{pageClickHandler(i+1)} }
-                      >{i+1}</button>}
-                    )
+                      onClick={() => { pageClickHandler(i + 1) }}
+                    >{i + 1}</button>
                   }
+                  )
+                }
 
 
               </div>

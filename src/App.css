@@ -262,7 +262,7 @@ main>#both_holder {
   border-radius: 45%;
   background-color: var(--theme);
   position: absolute;
-  top: 50%;
+  top: 49.5%;
   right: 0%;
   z-index: 0;
 
