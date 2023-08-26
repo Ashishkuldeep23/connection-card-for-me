@@ -1,49 +1,48 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-import arrOfLink from "./linksDataArr.js"
-import Links from "./components/Links";
 
 import NotificationDiv from "./components/NotificationDiv"
+
+
+import PersonalLinkHolder from "./components/PersonalLinkHolder";
+
+import CardTypeDiv from "./components/CardTypeDiv";
+
+import ThemeDiv from "./components/ThemeDiv";
+
 
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);   // // Seen in mobile or not.
 
-  const [userDataLinks, setUserDataLinks] = useState(arrOfLink);    // // // User Personal data.
+
 
   const [isdarkMode, setIsDarkMode] = useState(false);  // // // Dark mode enabled or not.
 
   const [userName, setUserName] = useState("Ashish Kuldeep")    // // // User Name here.
   const [userImage, setUserImage] = useState("http://res.cloudinary.com/dlvq8n2ca/image/upload/v1692032164/utemmzfh8jy0w4bufdp4.png")    // // // User Name here.
 
-  const [pagesAre, setPagesAre] = useState([])    // // // How many pages are pesent.
 
 
-  const [notidyInfo , setNotifyInfo] = useState( {status : false , msg : "I will Notify"} )   // // // This is used to store information aout notification.
+
+  const [notidyInfo, setNotifyInfo] = useState({ status: false, msg: "I will Notify" })   // // // This is used to store information aout notification.
 
 
 
 
 
   let timeOut;
-  function notificationFuction(status = false, data = "Notification KK" , sec = 1) {
+  function notificationFuction(status = false, data = "Notification KK", sec = 1) {
 
     clearTimeout(timeOut)
 
-
-    // setNotificationVisibility(status)
-    // setNotificationMsg(data)
-
-    setNotifyInfo({status : true , msg : data})
+    // // // Show notification and set data
+    setNotifyInfo({ status: true, msg: data })
 
     timeOut = setTimeout(() => {
 
-      // setNotificationVisibility(notificationVisibility => !notificationVisibility)
-      // setNotificationMsg(notificationMsg => notificationMsg)  
-
-
-      setNotifyInfo( (preValue) => {console.log(preValue); return { status : !preValue.status , msg : preValue.msg}} )
+      setNotifyInfo((preValue) => { return { status: !preValue.status, msg: preValue.msg } })
 
       // // // By above way setting data developer can set on perivious value.
     }, sec * 1000)
@@ -73,22 +72,6 @@ function App() {
   }
 
 
-
-  function themeChangeHandler(colorCode) {
-    // alert(colorCode);
-
-    // // // By below way i can get the value of :root var of css
-    // const color = getComputedStyle(document.documentElement).getPropertyValue(
-    //   "--theme"
-    // );
-    // console.log(color);
-
-    // // // By below way i'can change css var n react.
-    document.documentElement.style.setProperty("--theme", colorCode);
-
-    // // // Store color code in localStorage
-    localStorage.setItem("theme_of_card", JSON.stringify(colorCode));
-  }
 
 
 
@@ -132,47 +115,8 @@ function App() {
 
 
 
-  // // // This is global varible that holds the value how many links show maximum at one time
-  var forOnePage = 5       // // // maximum links in one page.
 
 
-
-  function pageClickHandler(n) {
-
-    // console.log(n)
-    // console.log( (n-1)*forOnePage , forOnePage*n )
-    // console.log(arrOfLink)
-
-
-    let s = (n - 1) * forOnePage
-    let e = forOnePage * n
-
-    let putThisArr = arrOfLink.slice(s, e)
-
-    // console.log(putThisArr)
-
-    setUserDataLinks(putThisArr)
-  }
-
-
-
-
-
-  // // // Favirote color cahnge handler fn ------>
-
-  function favColorChangeHandler(e) {
-
-    // console.log(e.target.value)
-
-    let colorCode = e.target.value
-
-    // // // By below way i'can change css var n react.
-    document.documentElement.style.setProperty("--theme", colorCode);
-
-    // // // Store color code in localStorage
-    localStorage.setItem("theme_of_card", JSON.stringify(colorCode));
-
-  }
 
 
 
@@ -218,39 +162,11 @@ function App() {
     }
 
 
-    // // // SetPages (pAGINATION CODE here , how many pages present )----->
-
-    if (forOnePage < 0) {
-      alert("Number of Links show in time can not be less then 0")
-    }
-
-
-
-    if (arrOfLink.length > forOnePage) {
-
-      let countPages = Math.ceil(arrOfLink.length / forOnePage)
-
-      // console.log(countPages)
-
-      let newArrForPages = []
-
-      for (let i = 1; i <= countPages; i++) {
-        newArrForPages.push(i)
-      }
-
-      setPagesAre(newArrForPages)
-
-      // console.log(arrOfLink)
-
-      let putThisArrInLink = arrOfLink.slice(0, forOnePage)
-      setUserDataLinks(putThisArrInLink)
-    }
-
 
 
     // // // Experiment for change favicon (Working now) ------>
     const favicon = document.getElementById("favicon");
-    favicon.setAttribute("href", userImage); 
+    favicon.setAttribute("href", userImage);
 
 
 
@@ -419,88 +335,41 @@ function App() {
   return (
     <>
 
-      <NotificationDiv 
-      userImage={userImage}
-      notificationVisibility={notidyInfo.status} 
-      notificationMsg={notidyInfo.msg} 
+      <NotificationDiv
+        userImage={userImage}
+        notificationVisibility={notidyInfo.status}
+        notificationMsg={notidyInfo.msg}
       ></NotificationDiv>
 
 
 
 
       <header id="header">
-        <div id="header_left"><button onClick={() => { alert("Currently Working , if you want a webapp where user can create own card , then write in comment box plz.") }}><i className="ri-align-justify"></i></button></div>
-
-        <div id="theme_div">
-          <span>Themes :- </span>
-          <button
-            className="im_theme"
-            onClick={() => { themeChangeHandler("#70f8ba"); notificationFuction(true , "New Theme set"); }}
-            style={{ backgroundColor: "#70f8ba" }}
-          >
-
-            <i className="ri-palette-line"></i>
-          </button>
-          <button
-            className="im_theme"
-            onClick={() => { themeChangeHandler("#ee85b5"); notificationFuction(true , "New Theme set"); }}
-            style={{ backgroundColor: "#ee85b5" }}
-          >
-            <i className="ri-palette-line"></i>
-          </button>
-          <button
-            className="im_theme"
-            onClick={() => {
-              themeChangeHandler("#69ddff");
-              notificationFuction(true , "New Theme set");
-            }}
-            style={{ backgroundColor: "#69ddff" }}
-          >
-            <i className="ri-palette-line"></i>
-          </button>
-          <button
-            className="im_theme"
-            onClick={() => {
-              themeChangeHandler("#D4C1EC");
-              notificationFuction(true , "New Theme set");
-            }}
-            style={{ backgroundColor: "#D4C1EC" }}
-          >
-            <i className="ri-palette-line"></i>
-          </button>
-          <button
-            className="im_theme"
-            onClick={() => {
-              themeChangeHandler("#ffd000");
-              notificationFuction(true , "New Theme set");
-            }}
-            style={{ backgroundColor: "#ffd000" }}
-          >
-            D
-          </button>
-
-          <input className="im_theme input_color" onChange={(e) => { favColorChangeHandler(e); notificationFuction(true , "New Theme set"); }} type="color" />
-
+        <div id="header_left">
+          <button onClick={() => { alert("Currently Working , if you want a webapp where user can create own card , then write in comment box plz.") }}><i className="ri-align-justify"></i></button>
         </div>
+
+        <ThemeDiv notificationFuction={notificationFuction} />
 
 
         <div id="header_right">
-          <button onClick={()=>{btnHandlerMakeDark(); notificationFuction(true , `${isdarkMode ? "Light" : "Dark"} mode set` , 0.5); }}>{isdarkMode ? <i className="ri-sun-line"></i> : <i className="ri-contrast-2-line"></i>}</button>
+          <button onClick={() => { btnHandlerMakeDark(); notificationFuction(true, `${isdarkMode ? "Light" : "Dark"} mode set`, 0.5); }}>{isdarkMode ? <i className="ri-sun-line"></i> : <i className="ri-contrast-2-line"></i>}</button>
         </div>
 
       </header>
 
       <main>
-        <div id="heading_div">
-          <h2>{"Let's Connect personaly"}</h2>
-        </div>
+
+        <CardTypeDiv cType={"personaly"} />
+
+
 
         <div id="both_holder">
           <div id="inner_left">
             <div>
               <img
                 src={userImage}
-                alt="Ashish"
+                alt={userName}
               />
             </div>
             <h1>
@@ -523,46 +392,14 @@ function App() {
           <div id="inner_right">
             <div id="for_style_right"></div>
             {
-              ((userDataLinks) && (userDataLinks.length > 0))
 
-                ? userDataLinks.map((user) => (
-                  <Links key={user.id} user={user}
-                  // clickAble={user.clickAble}
-                  // siteName={user.siteName}
-                  // logo={user.logo}
-                  />
-                ))
+              <PersonalLinkHolder notificationFuction={notificationFuction} />
 
-                : Array.from(Array(7)).map((el, i) => {
-                  return (
-
-                    ((i + 1) % 7 !== 0) ? <Links key={i} user={{}} /> : null
-
-                  )
-                })
 
             }
 
 
-            {
 
-              <div id="im_pagination_div">
-                {
-                  (pagesAre.length > 0) && pagesAre.map((el, i) => {
-                    return <button
-                      key={i}
-                      style={{ margin: "5px 10px" }}
-
-                      onClick={() => { pageClickHandler(i + 1); notificationFuction(true , `${i+1} page` , 0.5) }}
-                    >{i + 1}</button>
-                  }
-                  )
-                }
-
-
-              </div>
-
-            }
 
 
           </div>
