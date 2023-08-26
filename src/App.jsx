@@ -99,7 +99,7 @@ function App() {
 
 
   // // // This is global varible that holds the value how many links show maximum at one time
-  var forOnePage = 3      // // // maximum links in one page.
+  var forOnePage = 5       // // // maximum links in one page.
 
 
 
