@@ -124,6 +124,25 @@ function App() {
 
 
 
+  // // // Favirote color cahnge handler fn ------>
+
+  function favColorChangeHandler(e) {
+
+    // console.log(e.target.value)
+
+    let colorCode = e.target.value
+
+    // // // By below way i'can change css var n react.
+    document.documentElement.style.setProperty("--theme", colorCode);
+
+    // // // Store color code in localStorage
+    localStorage.setItem("theme_of_card", JSON.stringify(colorCode));
+
+  }
+
+
+
+
 
   // // // useEffect here ---------->
   useEffect(() => {
@@ -412,6 +431,9 @@ function App() {
           >
             D
           </button>
+
+          <input className="im_theme input_color" onChange={(e) => { favColorChangeHandler(e) }} type="color" />
+
         </div>
 
 
