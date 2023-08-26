@@ -4,6 +4,8 @@ import "./App.css";
 import arrOfLink from "./linksDataArr.js"
 import Links from "./components/Links";
 
+import NotificationDiv from "./components/NotificationDiv"
+
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);   // // Seen in mobile or not.
@@ -12,14 +14,46 @@ function App() {
 
   const [isdarkMode, setIsDarkMode] = useState(false);  // // // Dark mode enabled or not.
 
-  const [userName, setUserName] = useState("Ashish Kuldeep")
+  const [userName, setUserName] = useState("Ashish Kuldeep")    // // // User Name here.
+  const [userImage, setUserImage] = useState("http://res.cloudinary.com/dlvq8n2ca/image/upload/v1692032164/utemmzfh8jy0w4bufdp4.png")    // // // User Name here.
 
-  const [pagesAre, setPagesAre] = useState([])
+  const [pagesAre, setPagesAre] = useState([])    // // // How many pages are pesent.
+
+
+  const [notidyInfo , setNotifyInfo] = useState( {status : false , msg : "I will Notify"} )   // // // This is used to store information aout notification.
+
+
+
+
+
+  let timeOut;
+  function notificationFuction(status = false, data = "Notification KK" , sec = 1) {
+
+    clearTimeout(timeOut)
+
+
+    // setNotificationVisibility(status)
+    // setNotificationMsg(data)
+
+    setNotifyInfo({status : true , msg : data})
+
+    timeOut = setTimeout(() => {
+
+      // setNotificationVisibility(notificationVisibility => !notificationVisibility)
+      // setNotificationMsg(notificationMsg => notificationMsg)  
+
+
+      setNotifyInfo( (preValue) => {console.log(preValue); return { status : !preValue.status , msg : preValue.msg}} )
+
+      // // // By above way setting data developer can set on perivious value.
+    }, sec * 1000)
+
+    return
+  }
 
 
 
   function btnHandlerMakeDark() {
-
 
     if (!isdarkMode) {
       document.getElementById("root").style.backgroundColor = "#212529"
@@ -186,7 +220,6 @@ function App() {
 
     // // // SetPages (pAGINATION CODE here , how many pages present )----->
 
-
     if (forOnePage < 0) {
       alert("Number of Links show in time can not be less then 0")
     }
@@ -213,6 +246,11 @@ function App() {
       setUserDataLinks(putThisArrInLink)
     }
 
+
+
+    // // // Experiment for change favicon (Working now) ------>
+    const favicon = document.getElementById("favicon");
+    favicon.setAttribute("href", userImage); 
 
 
 
@@ -381,6 +419,12 @@ function App() {
   return (
     <>
 
+      <NotificationDiv 
+      userImage={userImage}
+      notificationVisibility={notidyInfo.status} 
+      notificationMsg={notidyInfo.msg} 
+      ></NotificationDiv>
+
 
 
 
@@ -391,7 +435,7 @@ function App() {
           <span>Themes :- </span>
           <button
             className="im_theme"
-            onClick={() => { themeChangeHandler("#70f8ba"); }}
+            onClick={() => { themeChangeHandler("#70f8ba"); notificationFuction(true , "New Theme set"); }}
             style={{ backgroundColor: "#70f8ba" }}
           >
 
@@ -399,7 +443,7 @@ function App() {
           </button>
           <button
             className="im_theme"
-            onClick={() => { themeChangeHandler("#ee85b5"); }}
+            onClick={() => { themeChangeHandler("#ee85b5"); notificationFuction(true , "New Theme set"); }}
             style={{ backgroundColor: "#ee85b5" }}
           >
             <i className="ri-palette-line"></i>
@@ -408,6 +452,7 @@ function App() {
             className="im_theme"
             onClick={() => {
               themeChangeHandler("#69ddff");
+              notificationFuction(true , "New Theme set");
             }}
             style={{ backgroundColor: "#69ddff" }}
           >
@@ -417,6 +462,7 @@ function App() {
             className="im_theme"
             onClick={() => {
               themeChangeHandler("#D4C1EC");
+              notificationFuction(true , "New Theme set");
             }}
             style={{ backgroundColor: "#D4C1EC" }}
           >
@@ -426,19 +472,20 @@ function App() {
             className="im_theme"
             onClick={() => {
               themeChangeHandler("#ffd000");
+              notificationFuction(true , "New Theme set");
             }}
             style={{ backgroundColor: "#ffd000" }}
           >
             D
           </button>
 
-          <input className="im_theme input_color" onChange={(e) => { favColorChangeHandler(e) }} type="color" />
+          <input className="im_theme input_color" onChange={(e) => { favColorChangeHandler(e); notificationFuction(true , "New Theme set"); }} type="color" />
 
         </div>
 
 
         <div id="header_right">
-          <button onClick={btnHandlerMakeDark}>{isdarkMode ? <i className="ri-sun-line"></i> : <i className="ri-contrast-2-line"></i>}</button>
+          <button onClick={()=>{btnHandlerMakeDark(); notificationFuction(true , `${isdarkMode ? "Light" : "Dark"} mode set` , 0.5); }}>{isdarkMode ? <i className="ri-sun-line"></i> : <i className="ri-contrast-2-line"></i>}</button>
         </div>
 
       </header>
@@ -452,7 +499,7 @@ function App() {
           <div id="inner_left">
             <div>
               <img
-                src="http://res.cloudinary.com/dlvq8n2ca/image/upload/v1692032164/utemmzfh8jy0w4bufdp4.png"
+                src={userImage}
                 alt="Ashish"
               />
             </div>
@@ -506,7 +553,7 @@ function App() {
                       key={i}
                       style={{ margin: "5px 10px" }}
 
-                      onClick={() => { pageClickHandler(i + 1) }}
+                      onClick={() => { pageClickHandler(i + 1); notificationFuction(true , `${i+1} page` , 0.5) }}
                     >{i + 1}</button>
                   }
                   )
