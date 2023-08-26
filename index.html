@@ -44,7 +44,7 @@
 
   </head>
 
-  <body>
+  <body >
     <div id="i_will_fallow_cursor"></div>
     <div id="root"></div>
 
@@ -73,7 +73,7 @@
 
         let preTimeOut;      // / // This Holds previous setTimeOut to make tracker dive in normal form.
 
-        window.addEventListener("mousemove", (dets) => {        // / // This line will listen Event on window
+        document.querySelector("body").addEventListener("mousemove", (dets) => {        // / // This line will listen Event on window
           // console.log(dets.clientX , dets.clientY)
 
           clearTimeout(preTimeOut)     // / // This line will clear all previous setTimeOut , if it is present.
@@ -105,6 +105,8 @@
           // // // Here make div normal (skey value normal) , but mouse present where my cursor present (This code only run when , cursor in not moving)
           preTimeOut = setTimeout(() => {
             trackerDiv.style.transform = `translate(${dets.clientX - 50}px , ${dets.clientY - 50}px) scale(${1} , ${1})`
+   
+
 
             // // // If cursor is not moving then make my div hidden in form.
             setTimeout(() => {

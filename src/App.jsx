@@ -198,6 +198,70 @@ function App() {
 
     }
 
+
+
+
+    // // // Experiment here --->
+
+    // // // If mouse come then give property ------>
+
+    document.getElementById("heading_div").addEventListener('mouseover' , ()=>{
+
+      trackerDiv.style.mixBlendMode = "exclusion"
+
+
+    })
+
+    // // // If mouse leaes then give property ------>
+
+    document.getElementById("heading_div").addEventListener("mouseleave" , ()=>{
+
+      trackerDiv.style.mixBlendMode = "unset"
+
+
+    })
+
+
+
+
+
+    // // // Getting div for animation if mouse fallower comes in card div ------->
+
+    var trackerDiv = document.getElementById("i_will_fallow_cursor")
+
+
+    // // // If mouse come then give property ------>
+
+    document.getElementById("both_holder").addEventListener("mouseover" , (details)=>{
+        // console.log("Good to go Cheif")
+
+        trackerDiv.style.height = "20px";
+        trackerDiv.style.width = "20px";
+
+
+        trackerDiv.style.mixBlendMode = "exclusion";
+        trackerDiv.style.transform = `translate(100% ,-100%)`
+
+
+        trackerDiv.style.marginLeft= "50px"
+        trackerDiv.style.marginTop= "50px"
+
+      })
+
+
+          // // // If mouse leave then give property (back to normal everything) ------>
+      document.getElementById("both_holder").addEventListener("mouseleave" , ()=>{
+        // console.log("Good to go Cheif")    
+        trackerDiv.style.height = "100px";
+        trackerDiv.style.width = "100px";
+        trackerDiv.style.mixBlendMode = "unset";
+
+        trackerDiv.style.marginLeft= "0px"
+        trackerDiv.style.marginTop= "0px"
+    })
+
+
+
   }, []);
 
 
