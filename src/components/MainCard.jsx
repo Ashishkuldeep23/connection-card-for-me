@@ -32,27 +32,26 @@ const MainCard = () => {
 
                 <div id="inner_right">
                     <div id="for_style_right"></div>
-                    {(userData) && (userData.length > 0)
-                        ? userData.map((user) => (
-                            <Links key={user.id} user={user}
-                            // clickAble={user.clickAble}
-                            // siteName={user.siteName}
-                            // logo={user.logo}
-                            />
-                        ))
+                    {
+                        (userData) && (userData.length > 0)
+                            ? userData.map((user) => (
+                                <Links key={user.id} user={user}
+                                // clickAble={user.clickAble}
+                                // siteName={user.siteName}
+                                // logo={user.logo}
+                                />
+                            ))
 
 
-                        : Array.from(Array(7)).map((el, i) => {
-                            return (
+                            : Array.from(Array(7)).map((el, i) => {
+                                return (
 
-                                ((i + 1) % 7 !== 0) ? <Links key={i} user={{}} /> : null
+                                    ((i + 1) % 7 !== 0) ? <Links key={i} user={{}} /> : null
 
-                            )
-
-
-                        })
+                                )
 
 
+                            })
                     }
 
 

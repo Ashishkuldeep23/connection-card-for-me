@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { Route , Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 
 import NotificationDiv from "./components/NotificationDiv"
@@ -335,7 +335,6 @@ function App() {
 
   return (
     <>
-
       <NotificationDiv
         userImage={userImage}
         notificationVisibility={notidyInfo.status}
@@ -361,15 +360,9 @@ function App() {
 
       <main>
 
-        <Routes>
-          <Route  exact path="/"  element={<CardTypeDiv cType={"Kuldeep"} />}></Route>
-          <Route  exact path="/1"  element={<CardTypeDiv cType={"checking"} />}></Route>
-          <Route  exact path="/2"  element={<CardTypeDiv cType={"personaly"} />}></Route>
 
+      <CardTypeDiv cType={"checking"} />
 
-        
-
-        </Routes>
 
 
         <div id="both_holder">
@@ -400,15 +393,14 @@ function App() {
           <div id="inner_right">
             <div id="for_style_right"></div>
             {
-              <Routes>
 
-                <Route exact path="/" element={<h1>Ashish</h1>}></Route>
-                <Route exact path="/1" element={<h1>Ashish</h1>}></Route>
-                <Route exact path="/2" element={<PersonalLinkHolder notificationFuction={notificationFuction} />}></Route>
+                <Routes>
 
-              
+                  <Route exact path="/" element={<h1>Ashish</h1>}></Route>
+                  <Route exact path="/1" element={<h1>Ashish</h1>}></Route>
+                  <Route exact path="/2" element={<PersonalLinkHolder notificationFuction={notificationFuction} />}></Route>
 
-              </Routes>
+                </Routes>
 
             }
 
