@@ -397,8 +397,8 @@ function App() {
                 <Routes>
 
                   <Route exact path="/" element={<h1>Ashish</h1>}></Route>
-                  <Route exact path="/1" element={<h1>Ashish</h1>}></Route>
-                  <Route exact path="/2" element={<PersonalLinkHolder notificationFuction={notificationFuction} />}></Route>
+                  <Route exact path="1" element={<h1>Ashish</h1>}></Route>
+                  <Route exact path="2" element={<PersonalLinkHolder notificationFuction={notificationFuction} />}></Route>
 
                 </Routes>
 
