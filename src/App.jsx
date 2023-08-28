@@ -363,9 +363,15 @@ function App() {
 
       <main>
 
+        <Routes>
 
-        <CardTypeDiv cType={"checking"} />
+          <Route  path="/" element={<CardTypeDiv cType="a" />}></Route>
+          <Route  path="/1" element={<CardTypeDiv  cType="b"  />}></Route>
+          <Route  path="*" element={<CardTypeDiv cType="c"  />}></Route>
 
+        
+
+        </Routes>
 
 
         <div id="both_holder">
@@ -399,8 +405,8 @@ function App() {
 
               <Routes >
 
-                <Route exact={true} path="/" element={<PersonalLinkHolder notificationFuction={notificationFuction} />}></Route>
-                <Route exact={true} path="/1" element={<ProfessonalLinkHolder notificationFuction={notificationFuction} />}></Route>
+                <Route exact={true} path="/" element={<ProfessonalLinkHolder notificationFuction={notificationFuction} />}></Route>
+                <Route exact={true} path="/1" element={<PersonalLinkHolder notificationFuction={notificationFuction} />}></Route>
                 <Route path="*" element={
                   <div style={{ color: 'var(--text)', zIndex: "999999", textAlign: "center" }}>
                     <h1>Page Not Found</h1>

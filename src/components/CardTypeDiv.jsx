@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CardTypeDiv = ({cType}) => {
+const CardTypeDiv = ({cType = ""}) => {
     return (
         <>
 

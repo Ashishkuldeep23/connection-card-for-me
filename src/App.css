@@ -370,6 +370,14 @@ main>#both_holder {
   cursor: pointer;
 }
 
+
+.social_link p:first-child{
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-family: cursive;
+}
+
+
 .im_user_id {
   display: none;
   font-size: 0.85rem;
