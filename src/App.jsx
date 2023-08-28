@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { Route, Routes, Router, useNavigate } from "react-router-dom";
+import { Route, Routes , useNavigate } from "react-router-dom";
 
 
 import NotificationDiv from "./components/NotificationDiv"
 
-
 import PersonalLinkHolder from "./components/PersonalLinkHolder";
 
 import ProfessonalLinkHolder from "./components/ProfessonalLinkHolder";
-
-import CardTypeDiv from "./components/CardTypeDiv";
 
 import ThemeDiv from "./components/ThemeDiv";
 
@@ -363,16 +360,10 @@ function App() {
 
       <main>
 
-        <Routes>
 
-          <Route  path="/" element={<CardTypeDiv cType="a" />}></Route>
-          <Route  path="/1" element={<CardTypeDiv  cType="b"  />}></Route>
-          <Route  path="*" element={<CardTypeDiv cType="c"  />}></Route>
-
-        
-
-        </Routes>
-
+        <div id="heading_div">
+          <h2>{`Let's Connect Friends`}</h2>
+        </div>
 
         <div id="both_holder">
           <div id="inner_left">
@@ -411,14 +402,14 @@ function App() {
                   <div style={{ color: 'var(--text)', zIndex: "999999", textAlign: "center" }}>
                     <h1>Page Not Found</h1>
                     <button
-                      style={ { 
-                        backgroundColor : 'var(--theme)' ,
-                        color : 'var(--dark)' ,
-                        borderRadius: "1.5vh" ,
-                        padding : "0.5vh 1vh" ,
-                        border : '1px solid var(--text)' ,
-                        fontWeight: "bold" 
-                      } }
+                      style={{
+                        backgroundColor: 'var(--theme)',
+                        color: 'var(--dark)',
+                        borderRadius: "1.5vh",
+                        padding: "0.5vh 1vh",
+                        border: '1px solid var(--text)',
+                        fontWeight: "bold"
+                      }}
                       onClick={() => navigate("/")}
                     >Home</button>
                   </div>
