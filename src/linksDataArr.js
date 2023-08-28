@@ -59,7 +59,7 @@ const arrOfLink = [
     // },
     {
         id: "6",
-        siteName: "Professional Links",
+        siteName: "Professional",
         logo: "ri-profile-line",
         clickAble: "#",
         userId : "professional card",

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes , Router } from "react-router-dom";
 
 
 import NotificationDiv from "./components/NotificationDiv"
@@ -394,12 +394,11 @@ function App() {
             <div id="for_style_right"></div>
             {
 
-                <Routes>
+                <Routes >
 
-                  <Route exact path="/" element={<h1>Ashish</h1>}></Route>
-                  <Route exact path="1" element={<h1>Ashish</h1>}></Route>
-                  <Route exact path="2" element={<PersonalLinkHolder notificationFuction={notificationFuction} />}></Route>
-
+                  <Route exact={true} path="/" element={<PersonalLinkHolder notificationFuction={notificationFuction} />}></Route>
+                  <Route exact={true} path="/1" element={<h1>Ashish</h1>}></Route>
+                  
                 </Routes>
 
             }
