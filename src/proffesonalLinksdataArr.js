@@ -1,18 +1,12 @@
-let myPhoneNumber = "9264981073"
-// console.log(myPhoneNumber)
+
+
+
 
 let msg = "Hey Ashish, I want to connect with you via What's App. I'm, <YOURNAME_HERE> and I want to discuss <TOPIC_HERE> , Thank you."
 // console.log(window.btoa(msg))
 
-// msg = window.btoa(msg)
 
-// // // Both are predefined in javasript -------->
-// // // window.btoa()  ==> str to encoded
-// // // window.atoa()  ==> encoded to str
-
-// const arrOfLink = []
-
-const arrOfLink = [
+const proffesonalLinksDataArr = [
     {
         id: "1",
         siteName: "Instagram",
@@ -43,14 +37,7 @@ const arrOfLink = [
         clickAble:`https://mail.google.com/mail/u/0/?to=ashishkuldeep6@gmail.com&su=Just_Connect_with_you&body=${msg}&bcc=ashishkuldeep6@gmail.com&fs=1&tf=cm`,
         userId : "ashishkuldeep6@gmail.com",
     },
-    {
-        id: "5",
-        siteName: "What's App",
-        logo: "ri-whatsapp-line",
-        // clickAble:"https://mail.google.com/mail/?view=cm&source=mailto&to=ashishkuldeep6@gmail.com",
-        clickAble:`https://wa.me/${myPhoneNumber}?text=${msg}`,
-        userId : "+91 9264981073",
-    },
+
     // {
     //   id: "5",
     //   siteName: "Github",
@@ -58,8 +45,8 @@ const arrOfLink = [
     //   clickAble: "https://github.com/Ashishkuldeep23",
     // },
     {
-        id: "6",
-        siteName: "Professional",
+        id: "5",
+        siteName: "Personal Card",
         logo: "ri-profile-line",
         clickAble: "#",
         userId : "professional card",
@@ -67,4 +54,4 @@ const arrOfLink = [
 ];
 
 
-export default arrOfLink
+export default proffesonalLinksDataArr

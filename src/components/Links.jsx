@@ -34,7 +34,7 @@ function Links({user}) {
       className="social_link"
       onClick={() => {
 
-        (siteName=="Professional")  ? navigate("/1")  : window.open(clickAble, "_blank");
+        (siteName=="Professional Card")  ? navigate("/1")  :  (siteName=="Personal Card") ?  navigate("/")   :  window.open(clickAble, "_blank");
       }}
     >
       <div>

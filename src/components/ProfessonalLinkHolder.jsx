@@ -1,24 +1,21 @@
 import React, { useState, useEffect, Fragment } from 'react'
 
-import personalLinksDataArr from '../personalLinksDataArr'
-
+import proffesonalLinksDataArr from '../proffesonalLinksdataArr'
 
 import Links from './Links'
 
-const PersonalLinkHolder = ({ notificationFuction }) => {
 
+const ProfessonalLinkHolder = ({ notificationFuction }) => {
 
-    const [userDataLinks, setUserDataLinks] = useState(personalLinksDataArr);    // // // User Personal data.
+    const [userDataLinks, setUserDataLinks] = useState(proffesonalLinksDataArr)
 
 
     const [pagesAre, setPagesAre] = useState([])    // // // How many pages are pesent.
 
 
-
-
-
-    // // // This is global varible that holds the value how many links show maximum at one time
     var forOnePage = 5       // // // maximum links in one page.
+
+
 
 
 
@@ -32,7 +29,7 @@ const PersonalLinkHolder = ({ notificationFuction }) => {
         let s = (n - 1) * forOnePage
         let e = forOnePage * n
 
-        let putThisArr = personalLinksDataArr.slice(s, e)
+        let putThisArr = proffesonalLinksDataArr.slice(s, e)
 
         // console.log(putThisArr)
 
@@ -50,10 +47,9 @@ const PersonalLinkHolder = ({ notificationFuction }) => {
         }
 
 
+        if (proffesonalLinksDataArr.length > forOnePage) {
 
-        if (personalLinksDataArr.length > forOnePage) {
-
-            let countPages = Math.ceil(personalLinksDataArr.length / forOnePage)
+            let countPages = Math.ceil(proffesonalLinksDataArr.length / forOnePage)
 
             // console.log(countPages)
 
@@ -67,12 +63,15 @@ const PersonalLinkHolder = ({ notificationFuction }) => {
 
             // console.log(personalLinksDataArr)
 
-            let putThisArrInLink = personalLinksDataArr.slice(0, forOnePage)
+            let putThisArrInLink = proffesonalLinksDataArr.slice(0, forOnePage)
             setUserDataLinks(putThisArrInLink)
         }
 
 
     }, [])
+
+
+
 
 
     return (
@@ -119,8 +118,11 @@ const PersonalLinkHolder = ({ notificationFuction }) => {
                 }
             </div>
 
+
+
+
         </>
     )
 }
 
-export default PersonalLinkHolder
+export default ProfessonalLinkHolder

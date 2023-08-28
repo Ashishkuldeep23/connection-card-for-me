@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { Route, Routes , Router } from "react-router-dom";
+import { Route, Routes, Router, useNavigate } from "react-router-dom";
 
 
 import NotificationDiv from "./components/NotificationDiv"
@@ -8,9 +8,13 @@ import NotificationDiv from "./components/NotificationDiv"
 
 import PersonalLinkHolder from "./components/PersonalLinkHolder";
 
+import ProfessonalLinkHolder from "./components/ProfessonalLinkHolder";
+
 import CardTypeDiv from "./components/CardTypeDiv";
 
 import ThemeDiv from "./components/ThemeDiv";
+
+
 
 
 
@@ -25,11 +29,10 @@ function App() {
   const [userImage, setUserImage] = useState("http://res.cloudinary.com/dlvq8n2ca/image/upload/v1692032164/utemmzfh8jy0w4bufdp4.png")    // // // User Name here.
 
 
-
-
   const [notidyInfo, setNotifyInfo] = useState({ status: false, msg: "I will Notify" })   // // // This is used to store information aout notification.
 
 
+  const navigate = useNavigate()    // // // This is used to return to home
 
 
 
@@ -361,7 +364,7 @@ function App() {
       <main>
 
 
-      <CardTypeDiv cType={"checking"} />
+        <CardTypeDiv cType={"checking"} />
 
 
 
@@ -394,12 +397,30 @@ function App() {
             <div id="for_style_right"></div>
             {
 
-                <Routes >
+              <Routes >
 
-                  <Route exact={true} path="/" element={<PersonalLinkHolder notificationFuction={notificationFuction} />}></Route>
-                  <Route exact={true} path="/1" element={<h1>Ashish</h1>}></Route>
-                  
-                </Routes>
+                <Route exact={true} path="/" element={<PersonalLinkHolder notificationFuction={notificationFuction} />}></Route>
+                <Route exact={true} path="/1" element={<ProfessonalLinkHolder notificationFuction={notificationFuction} />}></Route>
+                <Route path="*" element={
+                  <div style={{ color: 'var(--text)', zIndex: "999999", textAlign: "center" }}>
+                    <h1>Page Not Found</h1>
+                    <button
+                      style={ { 
+                        backgroundColor : 'var(--theme)' ,
+                        color : 'var(--dark)' ,
+                        borderRadius: "1.5vh" ,
+                        padding : "0.5vh 1vh" ,
+                        border : '1px solid var(--text)' ,
+                        fontWeight: "bold" 
+                      } }
+                      onClick={() => navigate("/")}
+                    >Home</button>
+                  </div>
+                }></Route>
+
+
+
+              </Routes>
 
             }
 
