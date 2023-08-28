@@ -25,7 +25,6 @@
 
 
 #notification_div{
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,6 +65,27 @@
   outline:1px solid var(--theme);
 }
 
+
+#menu_div{
+  position: absolute;
+  left: 0%;
+  top: 0;
+  z-index: 99999999;
+  padding: 1vh;
+  background-color: var(--dark);
+  color: var(--text);
+  border: 2px solid var(--theme);
+  border-radius: 2vh;
+  border-top-left-radius: 0;
+  width: 40%;
+  text-align: center;
+}
+
+
+#menu_div>ul{
+  text-align: start;
+  list-style-position: inside;
+}
 
 
 
@@ -462,6 +482,12 @@ main>#both_holder {
   }
 
 
+  #menu_div{
+    width: 95%;
+  }
+
+
+
   main {
     flex-direction: column-reverse;
   }
@@ -489,7 +515,6 @@ main>#both_holder {
     height: 35vh;
     width: 30vh;
   }
-
 
 
   #inner_left>#for_style_left {
@@ -530,7 +555,7 @@ main>#both_holder {
 @media (max-width: 450px) {
 
   #notification_div{
-    width: 52%;
+    width: 65%;
   }
 
   main>#heading_div {

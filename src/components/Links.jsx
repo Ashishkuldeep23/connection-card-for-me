@@ -2,19 +2,31 @@ import { useEffect } from "react";
 import { useNavigate  } from "react-router-dom";
 
 
-function Links({user}) {
+function Links({user , notificationFuction}) {
 
 
   let navigate = useNavigate();    // // // This hook is used to navigate user from present page to next page.
 
   let { siteName = "Link", logo = "ri-links-line", clickAble = "https://www.google.com/", userId = "ID ID ID ID" } = user
 
+
+
+  function gotoProffesonal(){
+    navigate("/");
+    notificationFuction(true , "Switch to Proffesonal Card")
+  }
+
+  function gotoPersonal(){
+    navigate("/1");
+    notificationFuction(true , "Switch to Personal card")
+  }
+
+
   useEffect(()=>{
 
 
     // // // Experimet here (Working) ----->
     // // // Let's use gsap in recat code 
-
 
     let tl = gsap.timeline()
 
@@ -33,8 +45,8 @@ function Links({user}) {
     <div
       className="social_link"
       onClick={() => {
-
-        (siteName=="Professional Card")  ? navigate("/")  :  (siteName=="Personal Card") ?  navigate("/1")   :  window.open(clickAble, "_blank");
+        
+        (siteName=="Professional Card")  ? gotoProffesonal() :  (siteName=="Personal Card") ?  gotoPersonal() : window.open(clickAble, "_blank");
       }}
     >
       <div>

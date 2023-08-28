@@ -1,5 +1,10 @@
 import React from 'react'
 
+
+
+const arrOffAllThemeColor = ["#70f8ba", "#ee85b5", "#69ddff", "#D4C1EC", "#ffd000"]
+
+
 const ThemeDiv = ({ notificationFuction }) => {
 
 
@@ -48,52 +53,29 @@ const ThemeDiv = ({ notificationFuction }) => {
 
             <div id="theme_div">
                 <span>Themes :- </span>
-                <button
-                    className="im_theme"
-                    onClick={() => { themeChangeHandler("#70f8ba"); notificationFuction(true, "New Theme set"); }}
-                    style={{ backgroundColor: "#70f8ba" }}
-                >
+                {
+                    // // // All Buttons here by loop ----->
+                    arrOffAllThemeColor && arrOffAllThemeColor.map((el, i) => {
+                        return (
 
-                    <i className="ri-palette-line"></i>
-                </button>
-                <button
-                    className="im_theme"
-                    onClick={() => { themeChangeHandler("#ee85b5"); notificationFuction(true, "New Theme set"); }}
-                    style={{ backgroundColor: "#ee85b5" }}
-                >
-                    <i className="ri-palette-line"></i>
-                </button>
-                <button
-                    className="im_theme"
-                    onClick={() => {
-                        themeChangeHandler("#69ddff");
-                        notificationFuction(true, "New Theme set");
-                    }}
-                    style={{ backgroundColor: "#69ddff" }}
-                >
-                    <i className="ri-palette-line"></i>
-                </button>
-                <button
-                    className="im_theme"
-                    onClick={() => {
-                        themeChangeHandler("#D4C1EC");
-                        notificationFuction(true, "New Theme set");
-                    }}
-                    style={{ backgroundColor: "#D4C1EC" }}
-                >
-                    <i className="ri-palette-line"></i>
-                </button>
-                <button
-                    className="im_theme"
-                    onClick={() => {
-                        themeChangeHandler("#ffd000");
-                        notificationFuction(true, "New Theme set");
-                    }}
-                    style={{ backgroundColor: "#ffd000" }}
-                >
-                    D
-                </button>
+                            <button
+                                key={i}
+                                className="im_theme"
+                                onClick={() => {
+                                    themeChangeHandler(`${el}`);
+                                    notificationFuction(true, "New Theme set");
+                                }}
+                                style={{ backgroundColor: `${el}` }}
+                            >
+                                {(i === arrOffAllThemeColor.length - 1) ? "D" : <i className="ri-palette-line"></i>}
+                            </button>
+                        )
+                    })
 
+                }
+
+
+                {/* This is used to get fav color of user. */}
                 <input className="im_theme input_color" onChange={(e) => { favColorChangeHandler(e); notificationFuction(true, "New Theme set"); }} type="color" />
 
             </div>

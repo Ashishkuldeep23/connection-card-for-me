@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { Route, Routes , useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 
 import NotificationDiv from "./components/NotificationDiv"
@@ -11,6 +11,7 @@ import ProfessonalLinkHolder from "./components/ProfessonalLinkHolder";
 
 import ThemeDiv from "./components/ThemeDiv";
 
+import Menu from "./components/Menu";
 
 
 
@@ -27,6 +28,9 @@ function App() {
 
 
   const [notidyInfo, setNotifyInfo] = useState({ status: false, msg: "I will Notify" })   // // // This is used to store information aout notification.
+
+
+  const [menuShow , setMenuShow ]  = useState(false)
 
 
   const navigate = useNavigate()    // // // This is used to return to home
@@ -205,6 +209,17 @@ function App() {
 
     })
 
+    tl.from("#menu_div", {
+      startAt: { x: 0, opacity: 1 },
+      x: "0%",
+      y: "-40",
+      duration: .7,
+      ease: Expo.none,
+
+
+
+    })
+
 
 
 
@@ -272,7 +287,6 @@ function App() {
 
       trackerDiv.style.mixBlendMode = "exclusion"
 
-
     })
 
     // // // If mouse leaes then give property ------>
@@ -280,7 +294,6 @@ function App() {
     document.getElementById("heading_div").addEventListener("mouseleave", () => {
 
       trackerDiv.style.mixBlendMode = "unset"
-
 
     })
 
@@ -291,7 +304,6 @@ function App() {
     // // // Getting div for animation if mouse fallower comes in card div ------->
 
     var trackerDiv = document.getElementById("i_will_fallow_cursor")
-
 
     // // // If mouse come then give property ------>
 
@@ -308,7 +320,6 @@ function App() {
 
       trackerDiv.style.marginLeft = "50px"
       trackerDiv.style.marginTop = "50px"
-
     })
 
 
@@ -335,6 +346,9 @@ function App() {
 
   return (
     <>
+
+
+
       <NotificationDiv
         userImage={userImage}
         notificationVisibility={notidyInfo.status}
@@ -345,8 +359,17 @@ function App() {
 
 
       <header id="header">
+
+        <Menu setMenuShow={setMenuShow} menuShow={menuShow} />
+
         <div id="header_left">
-          <button onClick={() => { alert("Currently Working , if you want a webapp where user can create own card , then write in comment box plz.") }}><i className="ri-align-justify"></i></button>
+          <button onClick={() => {
+
+            setMenuShow(!menuShow);
+
+            alert("Currently Working , if you want a webapp where user can create own card , then write in comment box plz."); 
+
+          }}><i className="ri-align-justify"></i></button>
         </div>
 
         <ThemeDiv notificationFuction={notificationFuction} />

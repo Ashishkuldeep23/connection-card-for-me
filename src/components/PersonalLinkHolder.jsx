@@ -85,7 +85,7 @@ const PersonalLinkHolder = ({ notificationFuction }) => {
                     ((userDataLinks) && (userDataLinks.length > 0))
 
                         ? userDataLinks.map((user) => (
-                            <Links key={user.id} user={user}
+                            <Links key={user.id} user={user}  notificationFuction={notificationFuction}
                             // clickAble={user.clickAble}
                             // siteName={user.siteName}
                             // logo={user.logo}
