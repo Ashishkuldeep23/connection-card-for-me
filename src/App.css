@@ -70,9 +70,12 @@
   position: absolute;
   left: 0%;
   top: 0;
-  z-index: 99999999;
+  z-index: 9999999999;
   padding: 1vh;
   background-color: var(--dark);
+
+  background-image: linear-gradient(to right bottom, var(--dark) ,  var(--dark) , var(--theme) );
+
   color: var(--text);
   border: 2px solid var(--theme);
   border-radius: 2vh;
@@ -81,11 +84,23 @@
   text-align: center;
 }
 
+#menu_div h3{
+  text-decoration: underline;
+}
+
 
 #menu_div>ul{
   text-align: start;
   list-style-position: inside;
 }
+
+
+#menu_div button{
+  width: 90%;
+  border-radius: 0.5vh;
+  font-weight: 600;
+}
+
 
 
 
@@ -214,12 +229,8 @@ main>#heading_div {
 main>#both_holder {
   min-height: 52vh;
   width: 50%;
-
-  background-color: white;
-
   border-radius: 5vh;
   overflow: hidden;
-
   box-shadow: 2px 2px 5px gray;
 
   display: flex;
@@ -250,16 +261,12 @@ main>#both_holder {
   margin: 1vh 0;
   z-index: 10;
 
-
-
   /* Two animation for same time and all same */
   animation-name: up_down, bg_shadow_up_down;
   animation-duration: 0.7s;
   animation-iteration-count: infinite;
   animation-direction: alternate-reverse;
   animation-timing-function: linear;
-
-
 }
 
 #inner_left img {
@@ -589,7 +596,7 @@ main>#both_holder {
 
 @keyframes bg_shadow_up_down {
   0% {
-    box-shadow: 0px 5px 3px gainsboro;
+    box-shadow: 0px 5px 3px var(--text);
   }
 
   100% {

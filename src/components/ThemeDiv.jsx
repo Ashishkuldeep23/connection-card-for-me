@@ -74,9 +74,12 @@ const ThemeDiv = ({ notificationFuction }) => {
 
                 }
 
-
                 {/* This is used to get fav color of user. */}
-                <input className="im_theme input_color" onChange={(e) => { favColorChangeHandler(e); notificationFuction(true, "New Theme set"); }} type="color" />
+                <input 
+                    type="color" 
+                    className="im_theme input_color" 
+                    onChange={(e) => { favColorChangeHandler(e); notificationFuction(true, "New Theme set"); }} 
+                />
 
             </div>
 

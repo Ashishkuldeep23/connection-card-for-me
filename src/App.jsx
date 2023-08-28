@@ -302,6 +302,7 @@ function App() {
 
 
     // // // Getting div for animation if mouse fallower comes in card div ------->
+    // // i_will_fallow_cursor this div is present out of root boundary , can control by anyWhere by gettig element
 
     var trackerDiv = document.getElementById("i_will_fallow_cursor")
 
@@ -341,6 +342,40 @@ function App() {
 
 
 
+  // // // This use effect used for Menu shown or not.
+
+  useEffect( ()=>{
+
+       // // // If Menus is visiable then make main blur
+    let mainEl = document.querySelector("main")
+
+    if(menuShow){
+      mainEl.style.opacity = "0.5"
+      mainEl.style.filter = "blur(10px)"
+    }else{
+      mainEl.style.opacity = "1"
+      mainEl.style.filter = "blur(0px)"
+    }
+
+
+    // // // If Menus is visiable then make it invisiable
+    mainEl.addEventListener("click" , ()=>{
+      if(menuShow){
+        setMenuShow(false)
+      }
+    })
+
+    document.getElementById("i_will_fallow_cursor").addEventListener("click" , ()=>{
+      if(menuShow){
+        setMenuShow(false)
+      }
+    })
+  
+  }  , [menuShow])
+
+
+
+
 
 
 
@@ -366,8 +401,6 @@ function App() {
           <button onClick={() => {
 
             setMenuShow(!menuShow);
-
-            alert("Currently Working , if you want a webapp where user can create own card , then write in comment box plz."); 
 
           }}><i className="ri-align-justify"></i></button>
         </div>

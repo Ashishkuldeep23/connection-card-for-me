@@ -6,9 +6,9 @@ const Menu = ({ setMenuShow, menuShow }) => {
             display: menuShow ? "block" : "none",
         }} id='menu_div'>
 
-            <h3>I'm Menu</h3>
+            <h3 >I'm Menu</h3>
             <ul>
-                <li></li>
+                <li>If you want a webapp where user can create own card , then write in comment box plz.</li>
                 <li></li>
                 <li></li>
                 <li></li>
@@ -22,7 +22,7 @@ const Menu = ({ setMenuShow, menuShow }) => {
             </ul>
             <button
                 onClick={() => { setMenuShow(false) }
-            }>X</button>
+            }>Close</button>
         </div>
     )
 }
