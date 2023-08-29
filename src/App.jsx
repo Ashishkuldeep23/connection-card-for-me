@@ -7,9 +7,11 @@ import NotificationDiv from "./components/NotificationDiv"
 
 import PersonalLinkHolder from "./components/PersonalLinkHolder";
 
-import ProfessonalLinkHolder from "./components/ProfessonalLinkHolder";
+import ProfessonalLinkHolder from "./components/ProfessionalLinkHolder";
 
 import ThemeDiv from "./components/ThemeDiv";
+
+import CardType from "./components/CardType";
 
 import Menu from "./components/Menu";
 
@@ -51,7 +53,6 @@ function App() {
 
       // // // By above way setting data developer can set on perivious value.
     }, sec * 1000)
-
     return
   }
 
@@ -175,6 +176,9 @@ function App() {
 
 
 
+    // // // Welcome msg (notification) to user -------->
+    notificationFuction(true , `Welcome to ${userName}'s card` , 0.5)
+
 
     // // // Get name of user   ( // // // Not using in personal card now)
 
@@ -204,9 +208,6 @@ function App() {
       y: "-40",
       duration: .7,
       ease: Expo.none,
-
-
-
     })
 
     tl.from("#menu_div", {
@@ -416,11 +417,9 @@ function App() {
 
       <main>
 
+          <CardType />
 
-        <div id="heading_div">
-          <h2>{`Let's Connect Friends`}</h2>
-        </div>
-
+      
         <div id="both_holder">
           <div id="inner_left">
             <div>

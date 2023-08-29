@@ -29,6 +29,8 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  
+  text-align: center;
 
   border: 1px solid var(--text);
   background-color: var(--dark);

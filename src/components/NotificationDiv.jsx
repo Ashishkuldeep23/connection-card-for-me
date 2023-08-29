@@ -13,11 +13,24 @@ const NotificationDiv = ({ userImage, notificationVisibility, notificationMsg })
         let tl = gsap.timeline()
 
         tl.to("#notification_div", {
+            x: "-50%",
             y: "-20",
             duration: .1,
             ease: Expo.none,
 
         })
+
+        const innerWidth = window.innerWidth;
+        if (innerWidth <= 670) {
+
+            tl.to("#notification_div", {
+                x: "-0%",
+                y: "-20",
+                duration: .1,
+                ease: Expo.none,
+    
+            })
+        }
 
     }, [])
 
@@ -31,14 +44,14 @@ const NotificationDiv = ({ userImage, notificationVisibility, notificationMsg })
             >
                 <img
                     style={{ visibility: notificationVisibility ? "visible" : "hidden" }}
-     
-
                     src={userImage} alt="userImage"
                 />
                 <h4
                     style={{ visibility: notificationVisibility ? "visible" : "hidden" }}
 
-                >{notificationMsg}</h4>
+                >
+                    {notificationMsg}
+                </h4>
             </div>
         </>
     )
