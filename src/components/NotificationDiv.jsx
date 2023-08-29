@@ -13,7 +13,7 @@ const NotificationDiv = ({ userImage, notificationVisibility, notificationMsg })
         let tl = gsap.timeline()
 
         tl.to("#notification_div", {
-            x: "-50%",
+            x: "-0%",
             y: "-20",
             duration: .1,
             ease: Expo.none,
