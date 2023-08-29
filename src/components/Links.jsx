@@ -55,7 +55,7 @@ function Links({user , notificationFuction}) {
         <span className="im_user_id">{userId}</span>
       </div>
       <p>
-        <i className={logo}></i>
+        <i className={`ri-${logo}-line`}></i>
       </p>
 
 

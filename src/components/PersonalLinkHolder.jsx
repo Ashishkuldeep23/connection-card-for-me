@@ -2,6 +2,8 @@ import React, { useState, useEffect, Fragment } from 'react'
 
 import personalLinksDataArr from '../personalLinksDataArr'
 
+import ImPagination from './ImPagination'
+
 
 import Links from './Links'
 
@@ -85,7 +87,7 @@ const PersonalLinkHolder = ({ notificationFuction }) => {
                     ((userDataLinks) && (userDataLinks.length > 0))
 
                         ? userDataLinks.map((user) => (
-                            <Links key={user.id} user={user}  notificationFuction={notificationFuction}
+                            <Links key={user.id} user={user} notificationFuction={notificationFuction}
                             // clickAble={user.clickAble}
                             // siteName={user.siteName}
                             // logo={user.logo}
@@ -105,19 +107,13 @@ const PersonalLinkHolder = ({ notificationFuction }) => {
 
 
 
-            <div id="im_pagination_div">
-                {
-                    (pagesAre.length > 0) && pagesAre.map((el, i) => {
-                        return <button
-                            key={i}
-                            style={{ margin: "5px 10px" }}
 
-                            onClick={() => { pageClickHandler(i + 1); notificationFuction(true, `${i + 1} page`, 0.5) }}
-                        >{i + 1}</button>
-                    }
-                    )
-                }
-            </div>
+
+            <>
+
+                <ImPagination pagesAre={pagesAre} pageClickHandler={pageClickHandler} notificationFuction={notificationFuction} />
+            </>
+
 
         </>
     )

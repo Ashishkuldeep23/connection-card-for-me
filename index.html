@@ -36,7 +36,7 @@
 
         transform: translate(-50%, 50%);
 
-        transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+        transition: all cubic-bezier(0.19, 1, 0.22, 1) 1.5s;
         /* mix-blend-mode: exclusion; */
 
         position: absolute;
@@ -110,13 +110,12 @@
             trackerDiv.style.transform = `translate(${dets.clientX - 50}px , ${dets.clientY - 50}px) scale(${1} , ${1})`
    
 
-
             // // // If cursor is not moving then make my div hidden in form.
             setTimeout(() => {
               trackerDiv.style.visibility = "hidden"
             }, 50)
 
-          }, 200)
+          }, 50)
 
         })
 
