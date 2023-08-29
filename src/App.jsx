@@ -348,23 +348,37 @@ function App() {
   useEffect( ()=>{
 
        // // // If Menus is visiable then make main blur
-    let mainEl = document.querySelector("main")
+    let bothHolderDiv = document.getElementById("both_holder")
+
+    let headingDiv = document.getElementById("heading_div")
 
     if(menuShow){
-      mainEl.style.opacity = "0.5"
-      mainEl.style.filter = "blur(10px)"
+      bothHolderDiv.style.opacity = "0.5"
+      bothHolderDiv.style.filter = "blur(10px)"
+
+      headingDiv.style.opacity = "0.5"
+      headingDiv.style.filter = "blur(10px)"
     }else{
-      mainEl.style.opacity = "1"
-      mainEl.style.filter = "blur(0px)"
+      bothHolderDiv.style.opacity = "1"
+      bothHolderDiv.style.filter = "blur(0px)"
+
+      headingDiv.style.opacity = "1"
+      headingDiv.style.filter = "blur(0px)"
     }
 
 
-    // // // If Menus is visiable then make it invisiable
-    mainEl.addEventListener("click" , ()=>{
+    // // If Menus is visiable then make it invisiable
+    bothHolderDiv.addEventListener("click" , ()=>{
       if(menuShow){
         setMenuShow(false)
       }
     })
+    headingDiv.addEventListener("click" , ()=>{
+      if(menuShow){
+        setMenuShow(false)
+      }
+    })
+
 
     document.getElementById("i_will_fallow_cursor").addEventListener("click" , ()=>{
       if(menuShow){
@@ -392,11 +406,11 @@ function App() {
       ></NotificationDiv>
 
 
+      <Menu setMenuShow={setMenuShow} menuShow={menuShow} />
 
 
       <header id="header">
 
-        <Menu setMenuShow={setMenuShow} menuShow={menuShow} />
 
         <div id="header_left">
           <button onClick={() => {
@@ -416,9 +430,10 @@ function App() {
       </header>
 
       <main>
-
+          <>
           <CardType />
 
+          </>
       
         <div id="both_holder">
           <div id="inner_left">
