@@ -26,7 +26,7 @@ function App() {
   const [isdarkMode, setIsDarkMode] = useState(false);  // // // Dark mode enabled or not.
 
   const [userName, setUserName] = useState("Ashish Kuldeep")    // // // User Name here.
-  const [userImage, setUserImage] = useState("http://res.cloudinary.com/dlvq8n2ca/image/upload/v1692032164/utemmzfh8jy0w4bufdp4.png")    // // // User Name here.
+  const [userImage, setUserImage] = useState("https://res.cloudinary.com/dlvq8n2ca/image/upload/v1692032164/utemmzfh8jy0w4bufdp4.png")    // // // User Name here.
 
 
   const [notidyInfo, setNotifyInfo] = useState({ status: false, msg: "I will Notify" })   // // // This is used to store information aout notification.
