@@ -238,7 +238,7 @@ main>#heading_div {
 
 
 main>#both_holder {
-  min-height: 52vh;
+  min-height: 53vh;
   width: 50%;
   border-radius: 5vh;
   overflow: hidden;
@@ -338,7 +338,6 @@ main>#both_holder {
   top: 0%;
   right: 0%;
   z-index: 0;
-
 }
 
 
@@ -348,7 +347,7 @@ main>#both_holder {
   background-color: var(--dark);
   /* background: url("http://res.cloudinary.com/dlvq8n2ca/image/upload/v1692032164/utemmzfh8jy0w4bufdp4.png"); */
 
-  padding: 2vh;
+  padding: 1.5vh;
   padding-left: 0;
   width: 60%;
 
@@ -370,7 +369,6 @@ main>#both_holder {
   top: 50%;
   right: 0%;
   z-index: 0;
-
 }
 
 
@@ -455,9 +453,8 @@ main>#both_holder {
 
   position: absolute;
 
-  bottom: 0;
-
-  z-index: 110;
+  bottom: 5px;
+  z-index: 120;
 }
 
 

@@ -40,8 +40,7 @@ function App() {
 
 
   let timeOut;
-  function notificationFuction(status = false, data = "Notification KK", sec = 1) {
-
+  function notificationFuction(status = false, data = "Notification KK", sec = 1){
     clearTimeout(timeOut)
 
     // // // Show notification and set data
