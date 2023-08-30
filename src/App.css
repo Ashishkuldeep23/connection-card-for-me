@@ -397,6 +397,7 @@ main>#both_holder {
   overflow-y: scrool;
 
   z-index: 110;
+  position: relative;
 }
 
 .social_link:hover {
@@ -408,23 +409,41 @@ main>#both_holder {
 }
 
 
-.social_link p:first-child{
+.social_link #website_name{
+  position: absolute;
+  bottom: 50%;
+  transform: translateY(50%);
+
   letter-spacing: 1px;
   font-weight: 600;
   font-family: cursive;
 }
 
+.social_link:hover #website_name{
+  bottom:65%;
+}
+
+
 
 .im_user_id {
-  display: none;
+  /* display: none; */
   font-size: 0.85rem;
   font-weight: bold;
   margin-top: -5px;
+  position: absolute;
+  top: 50%;
+
+  visibility: hidden;
+
 }
 
 
 .social_link:hover .im_user_id {
-  display: block !important;
+  top: 65%;
+  
+  visibility: visible !important;
+
+  /* display: block !important; */
 }
 
 
@@ -565,7 +584,7 @@ main>#both_holder {
   }
 
   .social_link {
-    height: 5vh;
+    height: 5.5vh;
     padding: 0.5vh;
     padding-left: 1.5vh;
   }

@@ -51,7 +51,7 @@ function Links({user , notificationFuction}) {
     >
       <div>
 
-        <p>{siteName}</p>
+        <p id="website_name">{siteName}</p>
         <span className="im_user_id">{userId}</span>
       </div>
       <p>
