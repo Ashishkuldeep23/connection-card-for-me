@@ -13,6 +13,7 @@ const proffesonalLinksDataArr = [
         siteName: "Github",
         logo: "github",
         clickAble: "https://github.com/Ashishkuldeep23",
+        userId: "Ashishkuldeep23",
     },
     {
         id: "2",
@@ -26,6 +27,7 @@ const proffesonalLinksDataArr = [
         siteName: "YouTube",
         logo: "youtube",
         clickAble: "https://www.youtube.com/@web_dev_with_ak",
+        userId: "web_dev_with_ak",
     },
     {
         id: "4",

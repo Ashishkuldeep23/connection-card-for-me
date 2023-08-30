@@ -67,12 +67,6 @@ const personalLinksDataArr = [
         clickAble:"https://www.snapchat.com/add/mrak21532?share_id=qtEhk6VE4T0&locale=en-US",
         userId : "mrak21532",
     },
-    // {
-    //   id: "5",
-    //   siteName: "Github",
-    //   logo: "ri-github-line",
-    //   clickAble: "https://github.com/Ashishkuldeep23",
-    // },
     {
         id: "8",
         siteName: "Professional Card",
