@@ -65,10 +65,11 @@
     <script>
       // // // Let's make mouse tracker
 
+      let trackerDiv = document.getElementById("i_will_fallow_cursor")    // / // This is actual div that fallowed my mouse
+
+
       function trackeMouseWithSkey() {     // / // function to fallow div
 
-
-        let trackerDiv = document.getElementById("i_will_fallow_cursor")    // / // This is actual div that fallowed my mouse
 
         // / // Some Predefined values In X and Y
         let preX = 0;
@@ -125,6 +126,14 @@
 
 
       trackeMouseWithSkey()
+
+
+      // // // Tracker div clicked then hide
+      trackerDiv.addEventListener("click" , ()=>{
+        trackerDiv.style.visibility = "hidden"
+      })
+
+
 
     </script>
 

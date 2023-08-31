@@ -490,6 +490,7 @@ main>#both_holder {
 #im_pagination_div>button:hover {
   background-color: var(--text);
   color: var(--theme);
+  cursor: pointer;
 }
 
 

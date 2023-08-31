@@ -306,13 +306,13 @@ function App() {
 
     var trackerDiv = document.getElementById("i_will_fallow_cursor")
 
-    // // // If mouse come then give property ------>
+    // // If mouse come then give property ------>
 
     document.getElementById("both_holder").addEventListener("mouseover", (details) => {
-      // console.log("Good to go Cheif")
+      console.log("Good to go Cheif")
 
-      trackerDiv.style.height = "20px";
-      trackerDiv.style.width = "20px";
+      trackerDiv.style.height = "10px";
+      trackerDiv.style.width = "10px";
 
 
       trackerDiv.style.mixBlendMode = "exclusion";
@@ -320,7 +320,8 @@ function App() {
 
 
       trackerDiv.style.marginLeft = "50px"
-      trackerDiv.style.marginTop = "50px"
+      trackerDiv.style.marginTop = "30px"
+
     })
 
 
