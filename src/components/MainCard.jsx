@@ -45,12 +45,8 @@ const MainCard = () => {
 
                             : Array.from(Array(7)).map((el, i) => {
                                 return (
-
                                     ((i + 1) % 7 !== 0) ? <Links key={i} user={{}} /> : null
-
                                 )
-
-
                             })
                     }
 

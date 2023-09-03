@@ -106,11 +106,7 @@ const PersonalLinkHolder = ({ notificationFuction }) => {
             </Fragment>
 
 
-
-
-
             <>
-
                 <ImPagination pagesAre={pagesAre} pageClickHandler={pageClickHandler} notificationFuction={notificationFuction} />
             </>
 

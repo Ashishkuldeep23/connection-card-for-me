@@ -309,7 +309,7 @@ function App() {
     // // If mouse come then give property ------>
 
     document.getElementById("both_holder").addEventListener("mouseover", (details) => {
-      console.log("Good to go Cheif")
+      // console.log("Good to go Cheif")
 
       trackerDiv.style.height = "10px";
       trackerDiv.style.width = "10px";

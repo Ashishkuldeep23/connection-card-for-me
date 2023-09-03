@@ -7,7 +7,7 @@ function Links({user , notificationFuction}) {
 
   let navigate = useNavigate();    // // // This hook is used to navigate user from present page to next page.
 
-  let { siteName = "Link", logo = "ri-links-line", clickAble = "https://www.google.com/", userId = "ID ID ID ID" } = user
+  let { siteName = "Link", logo = "ri-links-line", clickAble = "#", userId = "ID ID ID ID" } = user
 
 
 

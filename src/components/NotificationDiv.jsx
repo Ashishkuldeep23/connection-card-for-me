@@ -40,7 +40,6 @@ const NotificationDiv = ({ userImage, notificationVisibility, notificationMsg })
         <>
             <div id='notification_div'
                 style={{ visibility: notificationVisibility ? "visible" : "hidden" }}
-
             >
                 <img
                     style={{ visibility: notificationVisibility ? "visible" : "hidden" }}
@@ -48,7 +47,6 @@ const NotificationDiv = ({ userImage, notificationVisibility, notificationMsg })
                 />
                 <h4
                     style={{ visibility: notificationVisibility ? "visible" : "hidden" }}
-
                 >
                     {notificationMsg}
                 </h4>

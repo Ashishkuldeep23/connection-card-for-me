@@ -17,7 +17,7 @@ const Menu = ({ setMenuShow, menuShow }) => {
                 <li>A <strong>theme section</strong> is also present in the web app where users can set <strong>some predefined theme colors</strong> or users can also give their favorite color by <strong>color input</strong> (present in last) , comment your favorite color or <strong>show me a card with your favorite color</strong> theme.</li>
                 <li>In this project ,<strong>A notification section</strong> is also present in this web app that is used to <strong>show messages to users</strong>.
                 </li>
-                <li>In this project ,I try to improve myself in the <strong> designing part </strong>,please tell me <strong>your thoughts </strong> about this web app.
+                <li>In this project ,I try to improve myself in the <strong> designing part </strong>,please tell me <strong>your thoughts </strong> about the design of this web app.
                 </li>
                 <li>If you read <strong>till here then please don't forget to connect with me</strong> on social media platforms.</li>
                 <li>And obviously this web app is fully <strong>responsive</strong> and means the user can <strong>see it on any device</strong>.</li>
