@@ -92,6 +92,7 @@
   background-color: var(--dark);
 
   background-image: linear-gradient(to right bottom, var(--dark) ,  var(--dark) , var(--theme) );
+  box-shadow: 2px 2px 2px white , 7px 7px 7px gray , 10px 10px 10px black;
 
   color: var(--text);
   border: 3px solid var(--theme);
@@ -99,6 +100,7 @@
   border-top-left-radius: 0;
 
   width: 48%;
+
 
   text-align: center;
 }
@@ -115,7 +117,7 @@
 }
 
 
-#menu_div h3{
+#menu_div h2{
   text-decoration: underline;
 }
 
@@ -127,7 +129,6 @@
 
 
 #menu_div button{
-  margin-top: auto;
   width: 90%;
   border-radius: 0.5vh;
   font-weight: 600;
@@ -135,6 +136,9 @@
   color: var(--text);
   background-color: var(--dark);
   margin: 5vh 0;
+  margin-bottom: auto;
+  padding: 0.5vh 1vh;
+  text-transform: uppercase;
 }
 
 #menu_div button:hover{
@@ -272,7 +276,7 @@ main>#both_holder {
   width: 50%;
   border-radius: 5vh;
   overflow: hidden;
-  box-shadow: 2px 2px 5px gray;
+  box-shadow: 5px 5px 10px #808080;
 
   display: flex;
   border: 1px solid var(--theme);
@@ -542,7 +546,6 @@ main>#both_holder {
 
 @media (max-width: 670px) {
 
-
   #header {
     padding: 0.5vh 0.5vh;
   }
@@ -552,9 +555,9 @@ main>#both_holder {
     width: 90%;
   }
 
-  #menu_div button{
+  /* #menu_div button{
     margin: 0;
-  }
+  } */
 
 
   main {

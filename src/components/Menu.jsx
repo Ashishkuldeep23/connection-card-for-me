@@ -6,7 +6,7 @@ const Menu = ({ setMenuShow, menuShow }) => {
             display: menuShow ? "block" : "none",
         }} id='menu_div'>
 
-            <h3 >I'm Menu</h3>
+            <h2>I'm Menu</h2>
             <ul>
                 <li><strong>This is a connection card web app , here all social media links are given by the card owner. Anyone can connect with him/her by following links (by clicking on social media icon).</strong></li>
                 <li>The <strong>idea to create this web app</strong> is that <strong>users can create a connection card</strong> where <strong>all links of his/her social accounts are present</strong> and share the card link in <strong>their social media about section </strong>so that anyone can connect on other platforms also. For example card owners can give this link in <strong>whatsapp about section, Insta bio , Twitter about section , fb about</strong> or on other platforms.</li>
@@ -23,6 +23,7 @@ const Menu = ({ setMenuShow, menuShow }) => {
                 <li>And obviously this web app is fully <strong>responsive</strong> and means the user can <strong>see it on any device</strong>.</li>
                 <li><strong>Thank you</strong> for reading and visiting.</li>
                 <li>Please <strong>give your valuable feedback </strong> regarding this web app.(<strong>Likes , Dislikes , suggestions</strong> etc.)</li>
+                <li><strong>Inspiration</strong> to create this web app (making personal card) came from <strong>limey.io</strong> website.</li>
             </ul>
             <button
                 onClick={() => { setMenuShow(false) }
